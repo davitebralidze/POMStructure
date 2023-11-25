@@ -16,6 +16,7 @@ public class BaseUtility  {
 
     protected static WebDriver driver;
     protected FirstPageSteps firstPageSteps;
+    protected FirstPageElements firstPageElements;
 
 
     @Attachment(value = "Screenshot", type = "image/png")
