@@ -8,7 +8,6 @@ public class FirstPageTest extends BaseUtility {
 
     @Test(description = "Testing process")
     public void testingTest() {
-        firstPageSteps.getSearchBar().sendKeys("Hello");
-        takeScreenshot();
+        firstPageSteps.inputSearchData("hello");
     }
 }

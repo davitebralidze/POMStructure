@@ -13,6 +13,6 @@ public class FirstPageSteps extends FirstPageElements {
 
     @Step("Give data to a search bar")
     public void inputSearchData(String input) {
-        getSearchBar().sendKeys(input);
+        searchBar().sendKeys(input);
     }
 }
