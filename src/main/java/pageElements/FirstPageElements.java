@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 @Getter
 public class FirstPageElements {
 
-    WebDriver driver;
+    public WebDriver driver;
 
     public FirstPageElements(WebDriver driver) {
         this.driver = driver;

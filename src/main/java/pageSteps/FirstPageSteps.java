@@ -7,7 +7,6 @@ import pageElements.FirstPageElements;
 
 public class FirstPageSteps extends FirstPageElements {
 
-
     public FirstPageSteps(WebDriver driver) {
         super(driver);
     }
