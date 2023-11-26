@@ -2,17 +2,18 @@ package pageSteps;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import pageElements.FirstPageElements;
 
 public class FirstPageSteps extends FirstPageElements {
 
+    private final WebDriver driver;
+
     public FirstPageSteps(WebDriver driver) {
-        super(driver);
+        this.driver = driver;
     }
 
     @Step("Give data to a search bar")
     public void inputSearchData(String input) {
-        searchBar().sendKeys(input);
+        driver.findElement(getSearchBarXPath()).sendKeys(input);
     }
 }
