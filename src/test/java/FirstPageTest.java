@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 public class FirstPageTest extends BaseUtility {
 
     @Test(description = "Testing process")
-    public void testingTest() throws InterruptedException {
+    public void testingTest() {
         firstPageSteps.inputSearchData("Hello");
         takeScreenshot();
     }
