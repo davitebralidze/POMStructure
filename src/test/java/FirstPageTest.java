@@ -8,6 +8,10 @@ public class FirstPageTest extends BaseUtility {
         firstPageSteps.inputSearchData("Hello23425425");
     }
 
+    @Test
+    public void trustMe() {
+        firstPageSteps.inputSearchData("Trust me");
+    }
 
 
 }
