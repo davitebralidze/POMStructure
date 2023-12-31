@@ -23,9 +23,14 @@ public class BaseUtility {
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 
+    boolean isAllureFolderDeleted = false;
+
     @BeforeMethod
     public void setup() {
-        Utils.deleteAllureReports();
+        if(!isAllureFolderDeleted) {
+            Utils.deleteAllureReports();
+            isAllureFolderDeleted = true;
+        }
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get(returnConfigValue("url.base"));

@@ -37,13 +37,14 @@ public class Utils {
     }
 
     public static void deleteAllureReports() {
-        String folderPath = System.getProperty("user.dir") + "\\allure-results";
+        String folderPath = System.getProperty("user.dir") + "\\allure-resultsj";
+
         File folderToDelete = new File(folderPath);
         if (folderToDelete.exists()) {
             try {
                 deleteFolder(folderToDelete);
-            } catch (SecurityException ignored) {
-            }
+                System.out.println("Folder and its contents deleted successfully.");
+            } catch (SecurityException ignored) {}
         }
     }
 

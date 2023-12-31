@@ -6,9 +6,6 @@ import java.util.Properties;
 
 public class PropertyLoader {
 
-    private PropertyLoader() {
-    }
-
     public static String returnConfigValue(final String property) {
         Properties properties = new Properties();
 
