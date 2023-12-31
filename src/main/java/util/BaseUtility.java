@@ -12,12 +12,11 @@ import pageSteps.FirstPageSteps;
 
 import static util.PropertyLoader.returnConfigValue;
 
-public class BaseUtility  {
+public class BaseUtility {
 
-    protected static WebDriver driver;
+    protected WebDriver driver;
     protected FirstPageSteps firstPageSteps;
     protected FirstPageElements firstPageElements;
-
 
     @Attachment(value = "Screenshot", type = "image/png")
     public byte[] takeScreenshot() {
@@ -26,6 +25,7 @@ public class BaseUtility  {
 
     @BeforeMethod
     public void setup() {
+        Utils.deleteAllureReports();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get(returnConfigValue("url.base"));
@@ -34,6 +34,7 @@ public class BaseUtility  {
 
     @AfterMethod
     public void finish() {
+        takeScreenshot();
         driver.quit();
     }
 
