@@ -10,13 +10,14 @@ import org.testng.annotations.BeforeMethod;
 import pageElements.FirstPageElements;
 import pageSteps.FirstPageSteps;
 
+import java.io.IOException;
+
 import static util.PropertyLoader.returnConfigValue;
 
 public class BaseUtility {
 
     protected WebDriver driver;
     protected FirstPageSteps firstPageSteps;
-    protected FirstPageElements firstPageElements;
 
     @Attachment(value = "Screenshot", type = "image/png")
     public byte[] takeScreenshot() {
