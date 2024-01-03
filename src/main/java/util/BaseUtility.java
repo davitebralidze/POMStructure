@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import pageSteps.FirstPageSteps;
 import static util.PropertyLoader.returnConfigValue;
 
@@ -20,14 +21,12 @@ public class BaseUtility {
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 
-    boolean isAllureFolderDeleted = false;
-
+    @BeforeSuite
+    public void allureCleaner() {
+        Utils.deleteAllureReports();
+    }
     @BeforeMethod
     public void setup() {
-        if(!isAllureFolderDeleted) {
-            Utils.deleteAllureReports();
-            isAllureFolderDeleted = true;
-        }
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get(returnConfigValue("url.base"));
@@ -38,6 +37,7 @@ public class BaseUtility {
     public void finish() {
         takeScreenshot();
         driver.quit();
+
     }
 
 }

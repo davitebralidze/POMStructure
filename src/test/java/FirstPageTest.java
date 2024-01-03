@@ -5,8 +5,8 @@ import org.testng.annotations.Test;
 
 public class FirstPageTest extends BaseUtility implements FirstPageData {
 
-    @Test(description = "Testing process")
-    public void testingTest() {
+    @Test
+    public void testing() {
         firstPageSteps.inputSearchData("Hello23425425");
         Assert.assertEquals(expectedURL, driver.getCurrentUrl());
     }
@@ -15,6 +15,5 @@ public class FirstPageTest extends BaseUtility implements FirstPageData {
     public void trustMe() {
         firstPageSteps.inputSearchData("Trust me");
     }
-
 
 }
