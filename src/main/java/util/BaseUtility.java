@@ -10,6 +10,8 @@ import org.testng.annotations.BeforeMethod;
 import pageSteps.FirstPageSteps;
 
 
+import java.io.IOException;
+
 import static util.PropertyLoader.returnConfigValue;
 
 public class BaseUtility {
