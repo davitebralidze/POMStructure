@@ -5,7 +5,6 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class PropertyLoader {
-
     public static String returnConfigValue(final String property) {
         Properties properties = new Properties();
 
