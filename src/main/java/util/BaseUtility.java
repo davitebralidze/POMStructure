@@ -38,7 +38,6 @@ public class BaseUtility {
     public void finish() {
         takeScreenshot();
         driver.quit();
-
     }
 
 }
