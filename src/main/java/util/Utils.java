@@ -38,7 +38,6 @@ public class Utils {
 
     public static void deleteAllureReports() {
         String folderPath = System.getProperty("user.dir") + "\\allure-results";
-
         File folderToDelete = new File(folderPath);
         if (folderToDelete.exists()) {
             try {
