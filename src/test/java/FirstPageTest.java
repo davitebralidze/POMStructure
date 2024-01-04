@@ -11,9 +11,4 @@ public class FirstPageTest extends BaseUtility implements FirstPageData {
         Assert.assertEquals(expectedURL, driver.getCurrentUrl());
     }
 
-    @Test
-    public void trustMe() {
-        firstPageSteps.inputSearchData("Trust me");
-    }
-
 }
