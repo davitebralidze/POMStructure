@@ -25,6 +25,7 @@ public class BaseUtility {
     public void allureCleaner() {
         Utils.deleteAllureReports();
     }
+
     @BeforeMethod
     public void setup() {
         driver = new ChromeDriver();
