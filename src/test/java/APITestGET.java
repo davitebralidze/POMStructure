@@ -1,10 +1,7 @@
-import com.github.dockerjava.transport.DockerHttpClient;
 import io.restassured.RestAssured;
-import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import static util.PropertyLoader.returnConfigValue;
 
-public class APITest {
+public class APITestGET {
 
     public static void main(String[] args) {
 
