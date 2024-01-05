@@ -42,8 +42,8 @@ public class Utils {
         if (folderToDelete.exists()) {
             try {
                 deleteFolder(folderToDelete);
-            } catch (SecurityException ignored) {
-            }
+                System.out.println("Folder and its contents deleted successfully.");
+            } catch (SecurityException ignored) {}
         }
     }
 
@@ -55,6 +55,9 @@ public class Utils {
                     deleteFolder(file);
                 }
             }
+        }
+        if (!folder.delete()) {
+            System.out.println("Failed to delete folder: " + folder);
         }
     }
 
