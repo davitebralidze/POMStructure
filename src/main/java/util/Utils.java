@@ -42,7 +42,8 @@ public class Utils {
         if (folderToDelete.exists()) {
             try {
                 deleteFolder(folderToDelete);
-            } catch (SecurityException ignored) {}
+            } catch (SecurityException ignored) {
+            }
         }
     }
 
@@ -55,9 +56,6 @@ public class Utils {
                 }
             }
         }
-        if (!folder.delete()) {
-        }
     }
-
 
 }
