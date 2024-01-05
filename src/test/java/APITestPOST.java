@@ -1,8 +1,16 @@
 import Model.TestDataPojo;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import org.checkerframework.checker.units.qual.C;
+import org.openqa.selenium.JavascriptException;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import util.Utils;
+
+import java.util.Objects;
 
 public class APITestPOST {
 
@@ -27,7 +35,10 @@ public class APITestPOST {
 
         System.out.println(response.getStatusCode());
 
-        System.out.println(response.jsonPath().getString("token"));
+        String token = response.jsonPath().getString("token");
+
+        System.out.println(token);
+
 
     }
 
