@@ -42,7 +42,7 @@ public class Utils {
         if (folderToDelete.exists()) {
             try {
                 deleteFolder(folderToDelete);
-                System.out.println("Folder and its contents deleted successfully.");
+                System.out.println("Allure reports cleared successfully.");
             } catch (SecurityException ignored) {}
         }
     }
@@ -57,7 +57,7 @@ public class Utils {
             }
         }
         if (!folder.delete()) {
-            System.out.println("Failed to delete folder: " + folder);
+            System.out.println("Failed to clear folder: " + folder);
         }
     }
 
