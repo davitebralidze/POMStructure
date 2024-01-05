@@ -18,9 +18,9 @@ public class APITestPOST {
 
         String requestBody =
                 "{\n" +
-                        "    \"Email\": \"0713georgia@gmail.com\",\n" +
-                        "    \"Password\": \"Gagoshidze1!\",\n" +
-                        "    \"RememberMe\": false\n" +
+                        "    \"Email\" : \"0713georgia@gmail.com\",\n" +
+                        "    \"Password\" : \"Gagoshidze1!\",\n" +
+                        "    \"RememberMe\" : false\n" +
                         "}";
 
 //        TestDataPojo accessCredentials = Utils.readJsonFile("src/main/java/testdata/TestData.json", TestDataPojo.class);
@@ -39,6 +39,7 @@ public class APITestPOST {
 
         System.out.println(token);
 
+        System.out.println(requestBody);
 
     }
 
