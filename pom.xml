@@ -56,7 +56,7 @@
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
-            <version>1.9.20.1</version>
+            <version>1.9.21</version>
             <scope>runtime</scope>
         </dependency>
 
@@ -101,7 +101,7 @@
                 <version>2.20</version>
                 <configuration>
                     <argLine>
-                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.2/aspectjweaver-1.9.2.jar"
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.21/aspectjweaver-1.9.21.jar"
                     </argLine>
                 </configuration>
             </plugin>
