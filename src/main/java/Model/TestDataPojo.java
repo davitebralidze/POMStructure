@@ -10,4 +10,5 @@ public class TestDataPojo {
     private String email;
     private String password;
     private boolean rememberMe;
+
 }
