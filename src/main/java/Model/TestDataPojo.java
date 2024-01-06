@@ -6,7 +6,8 @@ import lombok.Data;
 @Data
 @Builder
 public class TestDataPojo {
-    String Email;
-    String Password;
-    boolean RememberMe;
+//    @JsonProperty("Email") -- > In case the name differs in the json format data provider file
+    private String email;
+    private String password;
+    private boolean rememberMe;
 }
