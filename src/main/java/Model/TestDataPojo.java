@@ -7,6 +7,6 @@ public class TestDataPojo {
     //    @JsonProperty("Email") -- > In case the name differs in the json format data provider file
     private String Email;
     private String Password;
-    private String RememberMe;
+    private boolean RememberMe;
 
 }
