@@ -7,6 +7,8 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -26,22 +28,30 @@ public class Utils {
         }
     }
 
+    public static <T> T readJsonFile(String testDataPath, Class<T> valueType) {
+        try {
+            byte[] jsonData = Files.readAllBytes(Paths.get(testDataPath));
+            ObjectMapper objectMapper = new ObjectMapper();
+            return objectMapper.readValue(jsonData, valueType);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public static String getFormattedJsonString(String inputFilePath) {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            // Read TestData.json file
             File inputFile = new File(inputFilePath);
             JsonNode rootNode = objectMapper.readTree(inputFile);
 
-            // Create a StringBuilder to build the formatted JSON string
             StringBuilder formattedJson = new StringBuilder("{\n");
 
-            // Iterate through the keys in the input JSON
             Iterator<Map.Entry<String, JsonNode>> fields = rootNode.fields();
             while (fields.hasNext()) {
                 Map.Entry<String, JsonNode> entry = fields.next();
-                String value = entry.getValue().isBoolean() ? String.valueOf(entry.getValue().asBoolean()) : entry.getValue().asText();
-                formattedJson.append("    \"").append(entry.getKey()).append("\" : \"").append(value).append("\"");
+                formattedJson.append("    \"").append(entry.getKey()).append("\" : \"")
+                        .append(entry.getValue().asText()).append("\"");
                 if (fields.hasNext()) {
                     formattedJson.append(",\n");
                 } else {
@@ -53,7 +63,6 @@ public class Utils {
 
             return formattedJson.toString();
         } catch (IOException e) {
-            // Handle the exception according to your application's requirements
             e.printStackTrace();
             return null;
         }
