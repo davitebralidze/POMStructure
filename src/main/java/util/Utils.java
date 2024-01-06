@@ -42,14 +42,11 @@ public class Utils {
     public static String getFormattedJsonString(String inputFilePath) {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            // Read TestData.json file
             File inputFile = new File(inputFilePath);
             JsonNode rootNode = objectMapper.readTree(inputFile);
 
-            // Create a StringBuilder to build the formatted JSON string
             StringBuilder formattedJson = new StringBuilder("{\n");
 
-            // Iterate through the keys in the input JSON
             Iterator<Map.Entry<String, JsonNode>> fields = rootNode.fields();
             while (fields.hasNext()) {
                 Map.Entry<String, JsonNode> entry = fields.next();
@@ -74,7 +71,6 @@ public class Utils {
 
             return formattedJson.toString();
         } catch (IOException e) {
-            // Handle the exception according to your application's requirements
             e.printStackTrace();
             return null;
         }
