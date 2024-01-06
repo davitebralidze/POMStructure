@@ -3,7 +3,7 @@ package pageElements;
 import lombok.Getter;
 import org.openqa.selenium.By;
 
-@Getter /*This lombok annotation gives the getter method implicitly*/
+@Getter /*lombok annotation that creates getter method, there is also @Setter annotation and @Data (Creates both))*/
 public class FirstPageElements {
 
     private final By searchBarXPath = By.xpath("//*[@id=\"APjFqb\"]");

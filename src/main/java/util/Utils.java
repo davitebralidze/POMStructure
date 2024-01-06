@@ -1,13 +1,14 @@
 package util;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.util.Iterator;
+import java.util.Map;
 
 public class Utils {
     public static void typeText(Robot robot, String text) {
@@ -25,12 +26,34 @@ public class Utils {
         }
     }
 
-    public static <T> T readJsonFile(String testDataPath, Class<T> valueType) {
+    public static String getFormattedJsonString(String inputFilePath) {
+        ObjectMapper objectMapper = new ObjectMapper();
         try {
-            byte[] jsonData = Files.readAllBytes(Paths.get(testDataPath));
-            ObjectMapper objectMapper = new ObjectMapper();
-            return objectMapper.readValue(jsonData, valueType);
+            // Read TestData.json file
+            File inputFile = new File(inputFilePath);
+            JsonNode rootNode = objectMapper.readTree(inputFile);
+
+            // Create a StringBuilder to build the formatted JSON string
+            StringBuilder formattedJson = new StringBuilder("{\n");
+
+            // Iterate through the keys in the input JSON
+            Iterator<Map.Entry<String, JsonNode>> fields = rootNode.fields();
+            while (fields.hasNext()) {
+                Map.Entry<String, JsonNode> entry = fields.next();
+                String value = entry.getValue().isBoolean() ? String.valueOf(entry.getValue().asBoolean()) : entry.getValue().asText();
+                formattedJson.append("    \"").append(entry.getKey()).append("\" : \"").append(value).append("\"");
+                if (fields.hasNext()) {
+                    formattedJson.append(",\n");
+                } else {
+                    formattedJson.append("\n");
+                }
+            }
+
+            formattedJson.append("}");
+
+            return formattedJson.toString();
         } catch (IOException e) {
+            // Handle the exception according to your application's requirements
             e.printStackTrace();
             return null;
         }
@@ -43,7 +66,8 @@ public class Utils {
             try {
                 deleteFolder(folderToDelete);
                 System.out.println("Allure reports cleared successfully.");
-            } catch (SecurityException ignored) {}
+            } catch (SecurityException ignored) {
+            }
         }
     }
 
