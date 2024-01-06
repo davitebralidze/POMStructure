@@ -1,14 +1,15 @@
 package pageSteps;
 
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageElements.FirstPageElements;
 
+import java.awt.*;
 import java.time.Duration;
+
+import static util.Utils.typeText;
 
 public class FirstPageSteps extends FirstPageElements {
 
@@ -24,6 +25,17 @@ public class FirstPageSteps extends FirstPageElements {
     public void inputSearchData(String input) {
         wait.until(ExpectedConditions.presenceOfElementLocated(getSearchBarXPath()));
         driver.findElement(getSearchBarXPath()).sendKeys(input);
+    }
+
+    @Step("Click on the input bar and fill the information")
+    public void inputSearchDataWithRobot(String text) {
+        wait.until(ExpectedConditions.presenceOfElementLocated(getSearchBarXPath()));
+        driver.findElement(getSearchBarXPath()).click();
+        try {
+            typeText(new Robot(), text);
+        } catch (AWTException e) {
+            e.printStackTrace();
+        }
     }
 
 }
