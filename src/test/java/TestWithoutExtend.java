@@ -8,6 +8,7 @@ public class TestWithoutExtend {
     public void clearAllureReports() {
         Utils.deleteAllureReports();
     }
+
     @Test
     public void test() {
         System.out.println("FirstPageWithoutExtend");
