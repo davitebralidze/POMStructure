@@ -30,113 +30,70 @@ public class Utils {
         }
     }
 
-    private static void typeSpecialCharacter(Robot robot, char character) {
+    private static void typeSpecialCharacter(java.awt.Robot robot, char character) {
         switch (character) {
-            case '!':
-                typeWithShift(robot, KeyEvent.VK_1);
-                break;
-            case '@':
-                typeWithShift(robot, KeyEvent.VK_2);
-                break;
-            case '#':
-                typeWithShift(robot, KeyEvent.VK_3);
-                break;
-            case '$':
-                typeWithShift(robot, KeyEvent.VK_4);
-                break;
-            case '%':
-                typeWithShift(robot, KeyEvent.VK_5);
-                break;
-            case '^':
-                typeWithShift(robot, KeyEvent.VK_6);
-                break;
-            case '&':
-                typeWithShift(robot, KeyEvent.VK_7);
-                break;
-            case '*':
-                typeWithShift(robot, KeyEvent.VK_8);
-                break;
-            case '(':
-                typeWithShift(robot, KeyEvent.VK_9);
-                break;
-            case ')':
-                typeWithShift(robot, KeyEvent.VK_0);
-                break;
-            case '_':
-                typeWithShift(robot, KeyEvent.VK_MINUS);
-                break;
-            case '+':
-                typeWithShift(robot, KeyEvent.VK_EQUALS);
-                break;
-            case '{':
-                typeWithShift(robot, KeyEvent.VK_OPEN_BRACKET);
-                break;
-            case '}':
-                typeWithShift(robot, KeyEvent.VK_CLOSE_BRACKET);
-                break;
-            case '[':
+            case '!' -> typeWithShift(robot, KeyEvent.VK_1);
+            case '@' -> typeWithShift(robot, KeyEvent.VK_2);
+            case '#' -> typeWithShift(robot, KeyEvent.VK_3);
+            case '$' -> typeWithShift(robot, KeyEvent.VK_4);
+            case '%' -> typeWithShift(robot, KeyEvent.VK_5);
+            case '^' -> typeWithShift(robot, KeyEvent.VK_6);
+            case '&' -> typeWithShift(robot, KeyEvent.VK_7);
+            case '*' -> typeWithShift(robot, KeyEvent.VK_8);
+            case '(' -> typeWithShift(robot, KeyEvent.VK_9);
+            case ')' -> typeWithShift(robot, KeyEvent.VK_0);
+            case '_' -> typeWithShift(robot, KeyEvent.VK_MINUS);
+            case '+' -> typeWithShift(robot, KeyEvent.VK_EQUALS);
+            case '{' -> typeWithShift(robot, KeyEvent.VK_OPEN_BRACKET);
+            case '}' -> typeWithShift(robot, KeyEvent.VK_CLOSE_BRACKET);
+            case '[' -> {
                 robot.keyPress(KeyEvent.VK_OPEN_BRACKET);
                 robot.keyRelease(KeyEvent.VK_OPEN_BRACKET);
-                break;
-            case ']':
+            }
+            case ']' -> {
                 robot.keyPress(KeyEvent.VK_CLOSE_BRACKET);
                 robot.keyRelease(KeyEvent.VK_CLOSE_BRACKET);
-                break;
-            case '|':
-                typeWithShift(robot, KeyEvent.VK_BACK_SLASH);
-                break;
-            case ';':
+            }
+            case '|' -> typeWithShift(robot, KeyEvent.VK_BACK_SLASH);
+            case ';' -> {
                 robot.keyPress(KeyEvent.VK_SEMICOLON);
                 robot.keyRelease(KeyEvent.VK_SEMICOLON);
-                break;
-            case ':':
-                typeWithShift(robot, KeyEvent.VK_SEMICOLON);
-                break;
-            case '\'':
+            }
+            case ':' -> typeWithShift(robot, KeyEvent.VK_SEMICOLON);
+            case '\'' -> {
                 robot.keyPress(KeyEvent.VK_QUOTE);
                 robot.keyRelease(KeyEvent.VK_QUOTE);
-                break;
-            case '"':
-                typeWithShift(robot, KeyEvent.VK_QUOTE);
-                break;
-            case '<':
-                typeWithShift(robot, KeyEvent.VK_COMMA);
-                break;
-            case '>':
-                typeWithShift(robot, KeyEvent.VK_PERIOD);
-                break;
-            case ',':
+            }
+            case '"' -> typeWithShift(robot, KeyEvent.VK_QUOTE);
+            case '<' -> typeWithShift(robot, KeyEvent.VK_COMMA);
+            case '>' -> typeWithShift(robot, KeyEvent.VK_PERIOD);
+            case ',' -> {
                 robot.keyPress(KeyEvent.VK_COMMA);
                 robot.keyRelease(KeyEvent.VK_COMMA);
-                break;
-            case '.':
+            }
+            case '.' -> {
                 robot.keyPress(KeyEvent.VK_PERIOD);
                 robot.keyRelease(KeyEvent.VK_PERIOD);
-                break;
-            case '?':
-                typeWithShift(robot, KeyEvent.VK_SLASH);
-                break;
-            case '/':
+            }
+            case '?' -> typeWithShift(robot, KeyEvent.VK_SLASH);
+            case '/' -> {
                 robot.keyPress(KeyEvent.VK_SLASH);
                 robot.keyRelease(KeyEvent.VK_SLASH);
-                break;
-            case '`':
+            }
+            case '`' -> {
                 robot.keyPress(KeyEvent.VK_BACK_QUOTE);
                 robot.keyRelease(KeyEvent.VK_BACK_QUOTE);
-                break;
-            case '~':
-                typeWithShift(robot, KeyEvent.VK_BACK_QUOTE);
-                break;
-            case '-':
+            }
+            case '~' -> typeWithShift(robot, KeyEvent.VK_BACK_QUOTE);
+            case '-' -> {
                 robot.keyPress(KeyEvent.VK_MINUS);
                 robot.keyRelease(KeyEvent.VK_MINUS);
-                break;
-            case '=':
+            }
+            case '=' -> {
                 robot.keyPress(KeyEvent.VK_EQUALS);
                 robot.keyRelease(KeyEvent.VK_EQUALS);
-                break;
-            default:
-                throw new IllegalArgumentException("Cannot type character: " + character);
+            }
+            default -> throw new IllegalArgumentException("Cannot type character: " + character);
         }
     }
 

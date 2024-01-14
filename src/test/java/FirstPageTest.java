@@ -13,8 +13,9 @@ public class FirstPageTest extends BaseUtility implements FirstPageData {
     }
 
     @Test
-    public void testingRobotInsertingInformation() {
+    public void testingRobotInsertingInformation() throws InterruptedException {
         firstPageSteps.inputSearchDataWithRobot("This text was inserted with robot!");
+        Thread.sleep(5000);
     }
 
 }
