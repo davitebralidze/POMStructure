@@ -17,16 +17,136 @@ public class Utils {
         char[] characters = text.toCharArray();
 
         for (char character : characters) {
-            int keyCode = KeyEvent.getExtendedKeyCodeForChar(character);
-
-            if (KeyEvent.CHAR_UNDEFINED == keyCode) {
-                throw new IllegalArgumentException("Cannot type character: " + character);
+            if (Character.isLetterOrDigit(character) || Character.isWhitespace(character)) {
+                int keyCode = KeyEvent.getExtendedKeyCodeForChar(character);
+                if (KeyEvent.CHAR_UNDEFINED == keyCode) {
+                    throw new IllegalArgumentException("Cannot type character: " + character);
+                }
+                robot.keyPress(keyCode);
+                robot.keyRelease(keyCode);
+            } else {
+                typeSpecialCharacter(robot, character);
             }
-
-            robot.keyPress(keyCode);
-            robot.keyRelease(keyCode);
         }
     }
+
+    private static void typeSpecialCharacter(Robot robot, char character) {
+        switch (character) {
+            case '!':
+                typeWithShift(robot, KeyEvent.VK_1);
+                break;
+            case '@':
+                typeWithShift(robot, KeyEvent.VK_2);
+                break;
+            case '#':
+                typeWithShift(robot, KeyEvent.VK_3);
+                break;
+            case '$':
+                typeWithShift(robot, KeyEvent.VK_4);
+                break;
+            case '%':
+                typeWithShift(robot, KeyEvent.VK_5);
+                break;
+            case '^':
+                typeWithShift(robot, KeyEvent.VK_6);
+                break;
+            case '&':
+                typeWithShift(robot, KeyEvent.VK_7);
+                break;
+            case '*':
+                typeWithShift(robot, KeyEvent.VK_8);
+                break;
+            case '(':
+                typeWithShift(robot, KeyEvent.VK_9);
+                break;
+            case ')':
+                typeWithShift(robot, KeyEvent.VK_0);
+                break;
+            case '_':
+                typeWithShift(robot, KeyEvent.VK_MINUS);
+                break;
+            case '+':
+                typeWithShift(robot, KeyEvent.VK_EQUALS);
+                break;
+            case '{':
+                typeWithShift(robot, KeyEvent.VK_OPEN_BRACKET);
+                break;
+            case '}':
+                typeWithShift(robot, KeyEvent.VK_CLOSE_BRACKET);
+                break;
+            case '[':
+                robot.keyPress(KeyEvent.VK_OPEN_BRACKET);
+                robot.keyRelease(KeyEvent.VK_OPEN_BRACKET);
+                break;
+            case ']':
+                robot.keyPress(KeyEvent.VK_CLOSE_BRACKET);
+                robot.keyRelease(KeyEvent.VK_CLOSE_BRACKET);
+                break;
+            case '|':
+                typeWithShift(robot, KeyEvent.VK_BACK_SLASH);
+                break;
+            case ';':
+                robot.keyPress(KeyEvent.VK_SEMICOLON);
+                robot.keyRelease(KeyEvent.VK_SEMICOLON);
+                break;
+            case ':':
+                typeWithShift(robot, KeyEvent.VK_SEMICOLON);
+                break;
+            case '\'':
+                robot.keyPress(KeyEvent.VK_QUOTE);
+                robot.keyRelease(KeyEvent.VK_QUOTE);
+                break;
+            case '"':
+                typeWithShift(robot, KeyEvent.VK_QUOTE);
+                break;
+            case '<':
+                typeWithShift(robot, KeyEvent.VK_COMMA);
+                break;
+            case '>':
+                typeWithShift(robot, KeyEvent.VK_PERIOD);
+                break;
+            case ',':
+                robot.keyPress(KeyEvent.VK_COMMA);
+                robot.keyRelease(KeyEvent.VK_COMMA);
+                break;
+            case '.':
+                robot.keyPress(KeyEvent.VK_PERIOD);
+                robot.keyRelease(KeyEvent.VK_PERIOD);
+                break;
+            case '?':
+                typeWithShift(robot, KeyEvent.VK_SLASH);
+                break;
+            case '/':
+                robot.keyPress(KeyEvent.VK_SLASH);
+                robot.keyRelease(KeyEvent.VK_SLASH);
+                break;
+            case '`':
+                robot.keyPress(KeyEvent.VK_BACK_QUOTE);
+                robot.keyRelease(KeyEvent.VK_BACK_QUOTE);
+                break;
+            case '~':
+                typeWithShift(robot, KeyEvent.VK_BACK_QUOTE);
+                break;
+            case '-':
+                robot.keyPress(KeyEvent.VK_MINUS);
+                robot.keyRelease(KeyEvent.VK_MINUS);
+                break;
+            case '=':
+                robot.keyPress(KeyEvent.VK_EQUALS);
+                robot.keyRelease(KeyEvent.VK_EQUALS);
+                break;
+            default:
+                throw new IllegalArgumentException("Cannot type character: " + character);
+        }
+    }
+
+    private static void typeWithShift(Robot robot, int keyCode) {
+        robot.keyPress(KeyEvent.VK_SHIFT);
+        robot.keyPress(keyCode);
+        robot.keyRelease(keyCode);
+        robot.keyRelease(KeyEvent.VK_SHIFT);
+    }
+
 
     public static <T> T readJsonFile(String testDataPath, Class<T> valueType) {
         try {
