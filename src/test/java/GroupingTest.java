@@ -1,6 +1,13 @@
+import Util.Utils;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 public class GroupingTest {
+
+    @BeforeSuite
+    public void clearAllureReports() {
+        Utils.deleteAllureReports();
+    }
 
     @Test(groups = "First Test")
     public void firstTest() {
