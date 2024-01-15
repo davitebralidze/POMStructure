@@ -104,18 +104,6 @@ public class Utils {
         robot.keyRelease(KeyEvent.VK_SHIFT);
     }
 
-
-    public static <T> T readJsonFile(String testDataPath, Class<T> valueType) {
-        try {
-            byte[] jsonData = Files.readAllBytes(Paths.get(testDataPath));
-            ObjectMapper objectMapper = new ObjectMapper();
-            return objectMapper.readValue(jsonData, valueType);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
     public static String getFormattedJsonString(String inputFilePath) {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
