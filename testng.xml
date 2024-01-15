@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-    <test name="Grouping test"> <!--name defines the name of the test that we will execute-->
+    <test name="The name was set from testng file"> <!--name defines the name of the test that we will execute-->
 
         <groups>
             <run> <!--in the run we specify which groups we want to include or exclude, take into account
