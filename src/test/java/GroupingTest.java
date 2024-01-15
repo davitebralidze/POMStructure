@@ -21,7 +21,7 @@ public class GroupingTest {
 
     @Test(groups = "Third Test")
     public void thirdTest() {
-        System.out.println("Third Test!");
+        System.out.println("Third Test");
     }
 
 }
