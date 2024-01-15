@@ -1,4 +1,4 @@
-package pageElements;
+package PageElements;
 
 import lombok.Getter;
 import org.openqa.selenium.By;

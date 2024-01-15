@@ -1,7 +1,7 @@
-import data.FirstPageData;
+import Data.FirstPageData;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import util.BaseUtility;
+import Util.BaseUtility;
 
 
 public class FirstPageTest extends BaseUtility implements FirstPageData {

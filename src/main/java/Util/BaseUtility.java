@@ -1,4 +1,4 @@
-package util;
+package Util;
 
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
@@ -8,8 +8,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
-import pageSteps.FirstPageSteps;
-import static util.PropertyLoader.returnConfigValue;
+import PageSteps.FirstPageSteps;
+import static Util.PropertyLoader.returnConfigValue;
 
 public class BaseUtility {
 

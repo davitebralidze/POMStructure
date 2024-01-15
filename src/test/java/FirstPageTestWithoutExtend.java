@@ -1,6 +1,6 @@
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
-import util.Utils;
+import Util.Utils;
 
 public class FirstPageTestWithoutExtend {
 

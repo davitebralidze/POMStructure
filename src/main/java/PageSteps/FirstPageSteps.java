@@ -1,15 +1,15 @@
-package pageSteps;
+package PageSteps;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pageElements.FirstPageElements;
+import PageElements.FirstPageElements;
 
 import java.awt.*;
 import java.time.Duration;
 
-import static util.Utils.typeText;
+import static Util.Utils.typeText;
 
 public class FirstPageSteps extends FirstPageElements {
 
