@@ -2,7 +2,7 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import Util.Utils;
 
-public class FirstPageTestWithoutExtend {
+public class FirstPageWithoutBeforeTest {
 
     @BeforeSuite
     public void clearAllureReports() {
