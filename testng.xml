@@ -3,12 +3,15 @@
 <suite name="Suite">
     <test name="The name was set from testng file"> <!--name defines the name of the test that we will execute-->
 
+        <groups> <!--groups defines the name of the groups that we will execute-->
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
 
         <classes> <!--classes specify from which classes we want tests to be executed-->
-            <class name="GroupingTest"/>
             <class name="FirstPageTest"/>
         </classes>
-
 
     </test>
 </suite>

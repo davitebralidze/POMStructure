@@ -21,12 +21,12 @@ public class BaseUtility {
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 
-    @BeforeSuite
+    @BeforeSuite(groups = "smoke")
     public void allureCleaner() {
         Utils.deleteAllureReports();
     }
 
-    @BeforeMethod
+    @BeforeMethod(groups = "smoke")
     public void setup() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -34,7 +34,7 @@ public class BaseUtility {
         firstPageSteps = new FirstPageSteps(driver);
     }
 
-    @AfterMethod
+    @AfterMethod(groups = "smoke")
     public void finish() {
         takeScreenshot();
         driver.quit();
