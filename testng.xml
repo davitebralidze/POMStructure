@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-    <test name="Grouping test">
+    <test name="Grouping test"> <!--name defines the name of the test that we will execute-->
 
         <groups>
-            <run>
+            <run> <!--in the run we specify which groups we want to include or exclude, take into account
+            that in this case all the tests that do not have the groups specified will be skipped-->
                 <exclude name="First Test"/>
                 <include name="Second Test"/>
                 <include name="Third Test"/>
             </run>
-
         </groups>
 
-        <classes>
+        <classes> <!--classes specify from which classes we want tests to be executed-->
             <class name="GroupingTest"/>
             <class name="FirstPageTest"/>
+            <class name="FirstPageWithoutBeforeTest"/>
         </classes>
 
 
