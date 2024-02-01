@@ -3,10 +3,13 @@ package Util;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -162,6 +165,61 @@ public class Utils {
         }
         if (!folder.delete()) {
             System.out.println("Failed to clear folder: " + folder);
+        }
+    }
+
+    public static String startAllureServeAndGetPort() {
+        try {
+            String[] command = {"cmd.exe", "/c", "allure serve"};
+            ProcessBuilder processBuilder = new ProcessBuilder(command);
+            processBuilder.redirectErrorStream(true);
+
+            Process process = processBuilder.start();
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            String line;
+            while ((line = reader.readLine()) != null) {
+
+                // Check if the line contains information about the running server and extract the port
+                if (line.contains("Server started at")) {
+                    String[] parts = line.split(":");
+                    if (parts.length > 2) {
+                        String portString = parts[2].replaceAll("\\D+", "").trim();
+                        final String CYAN = "\u001B[36m";
+                        final String RESET = "\u001B[0m";
+                        if (!portString.isEmpty()) {
+                            System.out.println(CYAN + "Allure Report is running on a port " + portString + RESET);
+                            return portString;
+                        }
+                    }
+                }
+            }
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public static void killAllureServer(String port) {
+        try {
+            Runtime rt = Runtime.getRuntime();
+            Process proc = rt.exec("cmd /c netstat -ano | findstr " + port);
+
+            BufferedReader stdInput = new BufferedReader(new InputStreamReader(proc.getInputStream()));
+            String s = null;
+            if ((s = stdInput.readLine()) != null) {
+                int index = s.lastIndexOf(" ");
+                String sc = s.substring(index, s.length());
+
+                rt.exec("cmd /c Taskkill /PID" + sc + " /T /F");
+
+            }
+            JOptionPane.showMessageDialog(null, "Allure server stopped");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Something Went wrong with server");
         }
     }
 

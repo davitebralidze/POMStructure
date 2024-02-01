@@ -1,11 +1,13 @@
 package Util;
 
+import GUI.TestEndButton;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import PageSteps.FirstPageSteps;
@@ -40,4 +42,8 @@ public class BaseUtility {
         driver.quit();
     }
 
+    @AfterSuite(groups = "smoke")
+    public void showTestResults() {
+        String port = Utils.startAllureServeAndGetPort();
+    }
 }
