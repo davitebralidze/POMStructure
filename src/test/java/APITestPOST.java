@@ -13,7 +13,7 @@ public class APITestPOST {
                         "    \"RememberMe\" : false\n" +
                         "}";
 
-        Response response = RestAssured.given().contentType(ContentType.JSON).body(requestBody).post("https://api.techwave.ge/api/Account/SignIn");
+        Response response = RestAssured.given().contentType(ContentType.JSON).body(requestBody).post("https://softwarege-qa.azurewebsites.net/api/Account/SignIn\n");
 
         System.out.println(response.getStatusCode());
 
