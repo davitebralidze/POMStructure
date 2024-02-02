@@ -189,6 +189,7 @@ public class Utils {
                         final String RESET = "\u001B[0m";
                         if (!portString.isEmpty()) {
                             System.out.println(CYAN + "Allure Report is running on a port " + portString + RESET);
+                            System.out.println(CYAN + "The PID of your process is " + getPIDOfTheProcess(portString) + RESET);
                             return portString;
                         }
                     }
@@ -203,7 +204,7 @@ public class Utils {
         return null;
     }
 
-    public static void killAllureServer(String port) {
+    public static String getPIDOfTheProcess(String port) {
         try {
             Runtime rt = Runtime.getRuntime();
             Process proc = rt.exec("cmd /c netstat -ano | findstr " + port);
@@ -213,14 +214,21 @@ public class Utils {
             if ((s = stdInput.readLine()) != null) {
                 int index = s.lastIndexOf(" ");
                 String sc = s.substring(index, s.length());
-
-                rt.exec("cmd /c Taskkill /PID" + sc + " /T /F");
-
+                return sc;
             }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Something Went wrong with server");
+            return null;
+        }
+        return null;
+    }
+    public static void killAllureServer(String port) {
+        try {
+            Runtime rt = Runtime.getRuntime();
+            rt.exec("cmd /c Taskkill /PID" + getPIDOfTheProcess(port) + " /T /F");
             JOptionPane.showMessageDialog(null, "Allure server stopped");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Something Went wrong with server");
         }
     }
-
 }

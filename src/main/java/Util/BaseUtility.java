@@ -43,7 +43,9 @@ public class BaseUtility {
     }
 
     @AfterSuite(groups = "smoke")
-    public void showTestResults() {
+    public void showTestResults() throws InterruptedException {
         String port = Utils.startAllureServeAndGetPort();
+        Thread.sleep(5000);
+        Utils.killAllureServer(port);
     }
 }
