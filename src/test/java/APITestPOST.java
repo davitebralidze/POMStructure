@@ -6,27 +6,25 @@ public class APITestPOST {
 
     public static void main(String[] args) {
 
-        String requestBody =
-                "{\n" +
-                        "    \"Email\" : \"0713georgia@gmail.com\",\n" +
-                        "    \"Password\" : \"Gagoshidze1!\",\n" +
-                        "    \"RememberMe\" : false\n" +
-                        "}";
+//        String requestBody =
+//                "{\n" +
+//                        "    \"Email\" : \"0713georgia@gmail.com\",\n" +
+//                        "    \"Password\" : \"Gagoshidze1!\",\n" +
+//                        "    \"RememberMe\" : false\n" +
+//                        "}";
 
         String requestBodyWithTextBlock =
-                        """
-                        {
-                            "Email" : "0713georgia@gmail.com",
-                            "Password" : "Gagoshidze1!",
-                            "RememberMe" : false
-                        }
-                        
-                        """;
+                """
+                {
+                    "Email" : "0713georgia@gmail.com",
+                    "Password" : "Gagoshidze1!",
+                    "RememberMe" : false
+                }""";
 
 
 
 
-        Response response = RestAssured.given().contentType(ContentType.JSON).body(requestBody).post("https://softwarege-qa.azurewebsites.net/api/Account/SignIn");
+        Response response = RestAssured.given().contentType(ContentType.JSON).body(requestBodyWithTextBlock).post("https://softwarege-qa.azurewebsites.net/api/Account/SignIn");
 
         System.out.println(response.getStatusCode());
 
@@ -34,7 +32,8 @@ public class APITestPOST {
 
         System.out.println(token);
 
-        System.out.println(requestBody);
+        System.out.println(requestBodyWithTextBlock);
+
 
     }
 
