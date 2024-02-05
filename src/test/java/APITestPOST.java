@@ -13,6 +13,19 @@ public class APITestPOST {
                         "    \"RememberMe\" : false\n" +
                         "}";
 
+        String requestBodyWithTextBlock =
+                        """
+                        {
+                            "Email" : "0713georgia@gmail.com",
+                            "Password" : "Gagoshidze1!",
+                            "RememberMe" : false
+                        }
+                        
+                        """;
+
+
+
+
         Response response = RestAssured.given().contentType(ContentType.JSON).body(requestBody).post("https://softwarege-qa.azurewebsites.net/api/Account/SignIn");
 
         System.out.println(response.getStatusCode());
