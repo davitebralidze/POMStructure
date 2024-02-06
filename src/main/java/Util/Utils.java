@@ -230,7 +230,10 @@ public class Utils {
             processBuilder.start();
 //            Runtime rt = Runtime.getRuntime();
 //            rt.exec("cmd /c Taskkill /PID" + getPIDOfTheProcess(port) + " /T /F");
-            JOptionPane.showMessageDialog(null, "Allure server stopped");
+            JOptionPane.showMessageDialog(null, "The test run has been finished!");
+            final String ORANGE = "\033[93;1m";
+            final String RESET = "\033[0m";
+            System.out.println(ORANGE + "Allure server has been stopped" + RESET);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Something Went wrong with server");
         }

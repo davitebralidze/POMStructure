@@ -1,6 +1,7 @@
 package Util;
 
-import GUI.TestEndButton;
+import java.time.Duration;
+import java.time.LocalTime;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -15,6 +16,10 @@ import static Util.PropertyLoader.returnConfigValue;
 
 public class BaseUtility {
 
+    private final String YELLOW = "\u001B[33m";
+    private final String RESET = "\u001B[0m";
+    private final String GREEN = "\033[92m";
+    private LocalTime localTime;
     protected WebDriver driver;
     protected FirstPageSteps firstPageSteps;
 
@@ -25,6 +30,8 @@ public class BaseUtility {
 
     @BeforeSuite(groups = "smoke")
     public void allureCleaner() {
+        localTime = LocalTime.now();
+        System.out.println(YELLOW + "Process started at: " + localTime + RESET);
         Utils.deleteAllureReports();
     }
 
@@ -45,7 +52,11 @@ public class BaseUtility {
     @AfterSuite(groups = "smoke")
     public void showTestResults() throws InterruptedException {
         String port = Utils.startAllureServeAndGetPort();
+        System.out.println(YELLOW + "Process ended at: " + LocalTime.now() + RESET);
+        Duration duration = Duration.between(localTime, LocalTime.now());
+        System.out.println(GREEN + "The testing process took " + duration.getSeconds()/60 + " minutes and " + (duration.getSeconds()%60) + " seconds" + RESET);
         Thread.sleep(15000);
         Utils.killAllureServer(port);
+
     }
 }

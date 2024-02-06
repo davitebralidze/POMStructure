@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite">
+<suite name="Test Suite">
     <test name="The name was set from testng file"> <!--name defines the name of the test that we will execute-->
 
         <groups> <!--groups defines the name of the groups that we will execute-->
