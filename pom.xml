@@ -41,7 +41,8 @@
             <version>7.9.0</version>
             <scope>compile</scope>
             <!-- In scope in official documents is written Test, which means that this dependency will be
-            included in case tests will run from testng file, and not in other cases. To fix this issue change test to compile-->
+            included in case tests will run from testng file, and not in other cases.
+            To fix this issue change test to compile-->
         </dependency>
 
         <dependency>
