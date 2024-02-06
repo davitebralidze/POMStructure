@@ -11,7 +11,7 @@ public class GetHTMLOfAnElement {
         WebDriver driver = new ChromeDriver();
         driver.get("https://techwave.ge/");
         try {
-            Thread.sleep(5000);
+            Thread.sleep(6000);
         } catch (Exception ignored){}
         WebElement element = driver.findElement(By.xpath("//*[@id=\"root\"]/div[1]/header/div/div/nav/div[3]/div/div[1]/a[2]"));
         String html = element.getAttribute("outerHTML");
