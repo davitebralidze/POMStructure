@@ -1,3 +1,4 @@
+import Util.Utils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -30,7 +31,12 @@ public class ScratchCodes {
         Thread.sleep(5000);
 
         // Execute JavaScript to remove the element from the DOM
-        ((JavascriptExecutor) driver).executeScript("arguments[0].parentNode.removeChild(arguments[0]);", driver.findElement(By.xpath("//*[@id=\"fb-root\"]")));
+//        ((JavascriptExecutor) driver).executeScript("arguments[0].parentNode.removeChild(arguments[0]);", driver.findElement(By.xpath("//*[@id=\"fb-root\"]")));
+
+        WebElement element = driver.findElement(By.xpath("//*[@id=\"fb-root\"]"));
+
+        Utils.removeElementFromDOM(driver, element);
+
 
         Thread.sleep(5000);
 
@@ -39,8 +45,10 @@ public class ScratchCodes {
         Thread.sleep(5000);
 
         //Scroll to a specific element
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("//*[@id=\"root\"]/div[1]/div[3]/div[2]/div[2]/div[2]/form/div/div/div[5]")));
+//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("//*[@id=\"root\"]/div[1]/div[3]/div[2]/div[2]/div[2]/form/div/div/div[5]")));
 
+        WebElement element1 = driver.findElement(By.xpath("//*[@id=\"root\"]/div[1]/div[3]/div[2]/div[2]/div[2]/form/div/div/div[5]"));
+        Utils.scrollToASpecificElement(driver, element1);
         Thread.sleep(5000);
 
         driver.findElement(By.xpath("//*[@id=\"root\"]/div[1]/div[3]/div[2]/div[2]/div[2]/form/div/div/div[4]/input")).sendKeys("C:\\Users\\User\\OneDrive - Flat Rock Technology\\Desktop\\file formats\\checkme.pdf");

@@ -2,6 +2,10 @@ package Util;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import javax.swing.*;
 import java.awt.*;
@@ -238,4 +242,13 @@ public class Utils {
             JOptionPane.showMessageDialog(null, "Something Went wrong with server");
         }
     }
+
+    public static void removeElementFromDOM (WebDriver driver, WebElement webElement) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].parentNode.removeChild(arguments[0]);", webElement);
+    }
+
+    public static void scrollToASpecificElement(WebDriver driver, WebElement webElement) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", webElement);
+    }
+
 }
