@@ -23,7 +23,7 @@ public class ScratchCodes {
         Thread.sleep(5000);
         driver.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys("Dato153109!");
         Thread.sleep(5000);
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div[1]/div[3]/form/div[4]/button")).click();
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div[1]/div[3]/form/div[6]/button")).click();
         Thread.sleep(5000);
         driver.findElement(By.xpath("//*[@id=\"root\"]/div[1]/header/div/div/nav/div[2]/div/ul/li[3]/a")).click();
         Thread.sleep(5000);
