@@ -53,7 +53,5 @@ public class ScratchCodes {
 
         driver.findElement(By.xpath("//*[@id=\"root\"]/div[1]/div[3]/div[2]/div[2]/div[2]/form/div/div/div[4]/input")).sendKeys("C:\\Users\\User\\OneDrive - Flat Rock Technology\\Desktop\\file formats\\checkme.pdf");
 
-        //ldjghakjldsghlksjdfhlkajsdfhlasdjhfklajdfhaljsdfhalkdf
-
     }
 }
