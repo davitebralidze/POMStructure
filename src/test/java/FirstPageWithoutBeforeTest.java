@@ -11,7 +11,7 @@ public class FirstPageWithoutBeforeTest {
 
     @Test
     public void test() {
-        System.out.println("FirstPageWithoutExtend! ? # /");
+        System.out.println("FirstPageWithoutExtend!");
     }
 
 }
