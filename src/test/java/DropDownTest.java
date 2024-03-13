@@ -24,6 +24,8 @@ public class DropDownTest {
 
         System.out.println(dropDown.getOptions().get(0).getText());
 
+        driver.quit();
+
 
     }
 
