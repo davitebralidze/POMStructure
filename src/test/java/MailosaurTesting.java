@@ -7,7 +7,12 @@ import com.mailosaur.models.SearchCriteria;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
 import java.util.SortedMap;
+import java.util.TimeZone;
 
 public class MailosaurTesting {
 
@@ -24,6 +29,8 @@ public class MailosaurTesting {
 
         Message message = mailosaur.messages().get(params, criteria);
 
+
+        System.out.println(message.received() + "  +00:00 UTC");
         System.out.println(message.subject());
         System.out.println(message.text().body());
 
