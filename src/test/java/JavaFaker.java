@@ -9,7 +9,8 @@ public class JavaFaker {
         String
                 firstName = faker.name().firstName(),
                 lastName = faker.name().lastName(),
-                email = faker.internet().emailAddress();
+                email = faker.internet().emailAddress(),
+                nation = faker.nation().nationality();
 
     }
 }
