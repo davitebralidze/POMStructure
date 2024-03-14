@@ -18,10 +18,11 @@ public class MailosaurTesting {
     @Test
     public void testingMailosaur() throws MailosaurException, IOException {
 
+        Date myDate = new Date(1, 5, 4);
         MailosaurClient mailosaur = new MailosaurClient(PropertyLoader.returnConfigValue("MailosaurAPI"));
 
         MessageSearchParams params = new MessageSearchParams();
-        params.withServer(PropertyLoader.returnConfigValue("MailosaurServerId")).withReceivedAfter(new Date(2020, 2, 5));;
+        params.withServer(PropertyLoader.returnConfigValue("MailosaurServerId")).withReceivedAfter(myDate);
 
         SearchCriteria criteria = new SearchCriteria();
         criteria.withSentTo("history-poetry@" + PropertyLoader.returnConfigValue("MailosaurServerDomain"));
@@ -39,6 +40,8 @@ public class MailosaurTesting {
         Document doc = Jsoup.parse(HTMLBody);
         Elements elements = doc.getElementsByAttribute("dir");
         System.out.println("The body was extracted from HTML \n" + elements.get(0).text());
+
+        System.out.println(message.html().body());
 
     }
 
