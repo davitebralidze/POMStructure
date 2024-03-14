@@ -21,7 +21,7 @@ public class MailosaurTesting {
         MailosaurClient mailosaur = new MailosaurClient(PropertyLoader.returnConfigValue("MailosaurAPI"));
 
         MessageSearchParams params = new MessageSearchParams();
-        params.withServer(PropertyLoader.returnConfigValue("MailosaurServerId"));
+        params.withServer(PropertyLoader.returnConfigValue("MailosaurServerId")).withReceivedAfter(new Date(2020, 2, 5));;
 
         SearchCriteria criteria = new SearchCriteria();
         criteria.withSentTo("history-poetry@" + PropertyLoader.returnConfigValue("MailosaurServerDomain"));
