@@ -10,7 +10,8 @@ public class JavaFaker {
                 firstName = faker.name().firstName(),
                 lastName = faker.name().lastName(),
                 email = faker.internet().emailAddress(),
-                nation = faker.nation().nationality();
+                nation = faker.nation().nationality(),
+                address = faker.address().fullAddress();
 
     }
 }
