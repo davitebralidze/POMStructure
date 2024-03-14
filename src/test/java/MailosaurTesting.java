@@ -4,15 +4,14 @@ import com.mailosaur.MailosaurException;
 import com.mailosaur.models.Message;
 import com.mailosaur.models.MessageSearchParams;
 import com.mailosaur.models.SearchCriteria;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZoneOffset;
-import java.time.ZonedDateTime;
-import java.util.SortedMap;
-import java.util.TimeZone;
+import java.time.Duration;
+import java.util.Date;
 
 public class MailosaurTesting {
 
@@ -31,8 +30,15 @@ public class MailosaurTesting {
 
 
         System.out.println(message.received() + "  +00:00 UTC");
+        System.out.println("From: " + message.from().get(0).email());
+        System.out.println("To: " + message.to().get(0).email());
         System.out.println(message.subject());
         System.out.println(message.text().body());
+        String HTMLBody = message.html().body();
+
+        Document doc = Jsoup.parse(HTMLBody);
+        Elements elements = doc.getElementsByAttribute("dir");
+        System.out.println("The body was extracted from HTML \n" + elements.get(0).text());
 
     }
 
