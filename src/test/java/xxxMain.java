@@ -4,8 +4,9 @@ public class xxxMain {
 
         xxxChild child = new xxxChild(4, 5, 6 , 7);
 
-        System.out.println(child.childThird);
-        System.out.println(child.childFourth);
+        System.out.println(child.childSum);
+        System.out.println(child.parentSum);
+
 
     }
 

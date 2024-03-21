@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class xxxTestStructure {
 
     @Test
-    public void insertSomeData() throws InterruptedException {
+    public void insertSomeData() {
         WebDriver driver = new ChromeDriver();
         PageSteps pageSteps = new PageSteps(driver);
 
