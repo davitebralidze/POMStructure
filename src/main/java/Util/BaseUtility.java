@@ -55,7 +55,7 @@ public class BaseUtility {
         System.out.println(YELLOW + "Process ended at: " + LocalTime.now() + RESET);
         Duration duration = Duration.between(localTime, LocalTime.now());
         System.out.println(GREEN + "The testing process took " + duration.getSeconds()/3600 + " hours " +(duration.getSeconds()%3600)/60 + " minutes and " + (duration.getSeconds()%60) + " seconds" + RESET);
-        Thread.sleep(5000);
+        Thread.sleep(100000);
         Utils.killAllureServer(port);
 
     }
