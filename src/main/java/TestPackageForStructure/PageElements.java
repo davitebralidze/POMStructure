@@ -9,9 +9,9 @@ public class PageElements {
 
     public PageElements (WebDriver driver) {
         this.driver = driver;
-
     }
+
     WebDriver driver;
-    WebElement searchBox = driver.findElement(By.xpath("//*[@id=\"APjFqb\"]"));;
+    WebElement searchBox = driver.findElement(By.xpath("//*[@id=\"APjFqb\"]"));
 
 }
