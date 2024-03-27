@@ -16,8 +16,9 @@ import java.util.Date;
 
 public class MailosaurTesting {
 
-    @Test
-    public void testingMailosaur() throws MailosaurException, IOException {
+    public static void main(String[] args) {
+
+        public void testingMailosaur() throws MailosaurException, IOException {
 
         MailosaurClient mailosaur = new MailosaurClient(PropertyLoader.returnConfigValue("MailosaurAPI"));
 
@@ -48,6 +49,7 @@ public class MailosaurTesting {
 
         System.out.println(message.html().body());
 
+        }
     }
 
 }
