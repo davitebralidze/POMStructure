@@ -10,15 +10,13 @@ import org.jsoup.select.Elements;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
-import java.time.Duration;
 import java.util.Calendar;
 import java.util.Date;
 
 public class MailosaurTesting {
 
-    public static void main(String[] args) {
-
-        public void testingMailosaur() throws MailosaurException, IOException {
+    @Test
+    public void testingMailosaur() throws MailosaurException, IOException {
 
         MailosaurClient mailosaur = new MailosaurClient(PropertyLoader.returnConfigValue("MailosaurAPI"));
 
@@ -49,7 +47,6 @@ public class MailosaurTesting {
 
         System.out.println(message.html().body());
 
-        }
     }
 
 }
