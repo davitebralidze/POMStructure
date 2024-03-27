@@ -1,16 +1,16 @@
-import Data.FirstPageData;
+import Util.PropertyLoader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import Util.BaseUtility;
 
 
-public class FirstPageTest extends BaseUtility implements FirstPageData {
+public class FirstPageTest extends BaseUtility {
 
     @Test(groups ="smoke")
     public void testing() {
         System.out.println("FirstPageTest first test invoked");
         firstPageSteps.inputSearchData("Hello23425425");
-        Assert.assertEquals(expectedURL, driver.getCurrentUrl());
+        Assert.assertEquals(PropertyLoader.returnConfigValue("expectedURL"), driver.getCurrentUrl());
     }
 
     @Test
