@@ -18,8 +18,6 @@ public class MailosaurTesting {
     @Test
     public void testingMailosaur() throws MailosaurException, IOException {
 
-        //just for push test
-
         MailosaurClient mailosaur = new MailosaurClient(PropertyLoader.returnConfigValue("MailosaurAPI"));
 
         Calendar calendar = Calendar.getInstance();
