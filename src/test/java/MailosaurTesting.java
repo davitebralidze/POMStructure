@@ -29,10 +29,9 @@ public class MailosaurTesting {
         params.withServer(PropertyLoader.returnConfigValue("MailosaurServerId")).withReceivedAfter(pastDate);
 
         SearchCriteria criteria = new SearchCriteria();
-        criteria.withSentTo("history-poetry@" + PropertyLoader.returnConfigValue("MailosaurServerDomain"));
+        criteria.withSentTo("try-mail@" + PropertyLoader.returnConfigValue("MailosaurServerDomain"));
 
         Message message = mailosaur.messages().get(params, criteria);
-
 
         System.out.println(message.received() + "  +00:00 UTC");
         System.out.println("From: " + message.from().get(0).email());
@@ -40,12 +39,11 @@ public class MailosaurTesting {
         System.out.println(message.subject());
         System.out.println(message.text().body());
         String HTMLBody = message.html().body();
+        System.out.println("The HTML of the message: " + HTMLBody);
 
         Document doc = Jsoup.parse(HTMLBody);
         Elements elements = doc.getElementsByAttribute("dir");
         System.out.println("The body was extracted from HTML \n" + elements.get(0).text());
-
-        System.out.println(message.html().body());
 
     }
 
