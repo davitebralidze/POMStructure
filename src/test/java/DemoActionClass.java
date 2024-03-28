@@ -35,7 +35,10 @@ public class DemoActionClass {
     public void holdOnKeyboardKey() throws InterruptedException {
         driver.get("https://www.google.com/");
         driver.manage().window().maximize();
-        action.moveToElement(driver.findElement(By.xpath("//*[@id=\"APjFqb\"]"))).click().keyDown(Keys.SHIFT).sendKeys("hello world").build().perform();
+        //After clicking a specific button, don't forget to release it with keyUP
+        action.moveToElement(driver.findElement(By.xpath("//*[@id=\"APjFqb\"]"))).click().keyDown(Keys.SHIFT).sendKeys("hello world").keyUp(Keys.SHIFT).build().perform();
+        //You can use or remove click() function in case of typing
+        action.moveToElement(driver.findElement(By.xpath("//*[@id=\"APjFqb\"]"))).sendKeys(" hello world").build().perform();
         Thread.sleep(5000);
         driver.quit();
     }
