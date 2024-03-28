@@ -1,3 +1,4 @@
+import Util.Utils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -76,6 +77,27 @@ public class DemoActionClass {
         int xCoordinate = elementLocation.getX();
         int yCoordinate = elementLocation.getY();
         */
+    }
+
+    @Test
+    public void pressTwoKeysTogether() throws InterruptedException {
+        driver.get("https://en.key-test.ru/");
+        driver.manage().window().maximize();
+        Thread.sleep(5000);
+        action.keyDown(Keys.SHIFT).keyDown(Keys.CONTROL).build().perform();
+        Thread.sleep(5000);
+        action.keyUp(Keys.CONTROL).keyUp(Keys.SHIFT).build().perform();
+        driver.quit();
+    }
+
+    @Test
+    public void scrollByOffset() throws InterruptedException {
+        driver.get("https://scrollmagic.io/examples/advanced/infinite_scrolling.html");
+        driver.manage().window().maximize();
+        Thread.sleep(5000);
+        Utils.scrollByOffset(driver, 0, 150);
+        Thread.sleep(5000);
+        driver.quit();
     }
 
 }

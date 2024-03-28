@@ -2,7 +2,6 @@ package Util;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -228,6 +227,7 @@ public class Utils {
         }
         return null;
     }
+
     public static void killAllureServer(String port) {
         try {
             ProcessBuilder processBuilder = new ProcessBuilder("cmd", "/c", "Taskkill", "/PID", getPIDOfTheProcess(port), "/T", "/F");
@@ -243,12 +243,24 @@ public class Utils {
         }
     }
 
-    public static void removeElementFromDOM (WebDriver driver, WebElement webElement) {
+    public static void removeElementFromDOM(WebDriver driver, WebElement webElement) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].parentNode.removeChild(arguments[0]);", webElement);
     }
 
     public static void scrollToASpecificElement(WebDriver driver, WebElement webElement) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", webElement);
+    }
+
+    public static void scrollByOffset(WebDriver driver, long xOffset, long yOffset) {
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(" + xOffset + ", " + yOffset + ")");
+    }
+
+    public static void scrollToTheBottomOfThePage (WebDriver driver) {
+        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+    }
+
+    public static void scrollToTheTopOfThePage (WebDriver driver) {
+        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, 0");
     }
 
 }
