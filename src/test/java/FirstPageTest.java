@@ -1,20 +1,20 @@
+import Util.BaseUtility;
 import Util.PropertyLoader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import Util.BaseUtility;
 
 
 public class FirstPageTest extends BaseUtility {
 
-    @Test(groups ="smoke")
+    @Test(groups = "smoke")
     public void testing() {
         System.out.println("FirstPageTest first test invoked");
         firstPageSteps.inputSearchData("Hello23425425");
-        Assert.assertEquals(PropertyLoader.returnConfigValue("expectedURL"), driver.getCurrentUrl());
+        Assert.assertEquals(PropertyLoader.returnConfigValue("expectedURL"), driver.getCurrentUrl(), "The URL was not as expected");
     }
 
     @Test
-    public void testingRobotInsertingInformation() throws InterruptedException {
+    public void testingRobotInsertingInformation() {
         System.out.println("FirstPageTest second test invoked");
         firstPageSteps.inputSearchDataWithRobot("This text was inserted with robot!");
     }
