@@ -13,7 +13,7 @@ public class DemoActionClass {
     Actions action = new Actions(driver);
 
     @Test
-    public void hoverTest() throws InterruptedException {
+    public void hover() throws InterruptedException {
         driver.get("https://qaplayground.dev/#apps");
         driver.manage().window().maximize();
         driver.findElement(By.xpath("/html/body/main/div[3]/a[17]/div/div")).click();
