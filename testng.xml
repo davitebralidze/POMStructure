@@ -3,12 +3,20 @@
 <suite name="Test Suite"> <!-- Here you set the name of the test suite!-->
     <test name="The name was set from testng file"> <!--name defines the name of the test set that we will execute-->
 
-        <parameter name="browser" value="chrome" />
         <!--
         Supported browsers
         1) chrome
         2) firefox
         -->
+        <parameter name="browser" value="chrome"/>
+
+        <!--
+        Supported environments
+        1) qa
+        2) uat
+        3)live
+        -->
+        <parameter name="environment" value="qa"/>
 
         <groups> <!--groups defines the name of the groups that we will execute-->
             <run>
@@ -17,7 +25,6 @@
         </groups>
 
         <classes> <!--classes specify from which classes we want tests to be executed-->
-            <class name="Util.BaseUtility"/>
             <class name="FirstPageTest"/>
         </classes>
 

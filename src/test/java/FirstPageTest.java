@@ -3,7 +3,6 @@ import Util.PropertyLoader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-
 public class FirstPageTest extends BaseUtility {
 
     @Test(groups = "smoke")

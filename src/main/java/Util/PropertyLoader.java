@@ -9,10 +9,7 @@ public class PropertyLoader {
 
     public static String returnConfigValue(final String property) {
         Properties properties = new Properties();
-
-        try (InputStream propFileInpStream = PropertyLoader.class.getClassLoader()
-                .getResourceAsStream(direction)) {
-
+        try (InputStream propFileInpStream = PropertyLoader.class.getClassLoader().getResourceAsStream(direction)) {
             properties.load(propFileInpStream);
             return properties.getProperty(property);
         } catch (IOException e) {
