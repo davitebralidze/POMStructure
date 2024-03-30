@@ -9,10 +9,8 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.*;
 import PageSteps.FirstPageSteps;
 import static Util.PropertyLoader.returnConfigValue;
 
@@ -39,8 +37,16 @@ public class BaseUtility {
     }
 
     @BeforeMethod(groups = "smoke")
-    public void setup() {
-        driver = new ChromeDriver();
+    @Parameters({"browser"})
+    public void setup(String browser) {
+        if(browser.equals("chrome")) {
+            driver = new ChromeDriver();
+        } else if (browser.equals("firefox")) {
+            driver = new FirefoxDriver();
+        } else {
+            logger.severe("Such browser is not supported");
+            System.exit(0);
+        }
         driver.manage().window().maximize();
         driver.get(returnConfigValue("url.base"));
         firstPageSteps = new FirstPageSteps(driver);
@@ -60,6 +66,5 @@ public class BaseUtility {
         System.out.println(GREEN + "The testing process took " + duration.getSeconds()/3600 + " hours " +(duration.getSeconds()%3600)/60 + " minutes and " + (duration.getSeconds()%60) + " seconds" + RESET);
         Thread.sleep(10000);
         Utils.killAllureServer(port);
-
     }
 }
