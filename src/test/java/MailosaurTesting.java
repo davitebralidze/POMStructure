@@ -15,10 +15,11 @@ import java.util.Date;
 
 public class MailosaurTesting {
 
-    @Test
+    @Test(groups = "smoke")
     public void testingMailosaur() throws MailosaurException, IOException {
+        PropertyLoader propertyLoader = new PropertyLoader("qa");
 
-        MailosaurClient mailosaur = new MailosaurClient(PropertyLoader.returnConfigValue("MailosaurAPI"));
+        MailosaurClient mailosaur = new MailosaurClient(propertyLoader.returnConfigValue("MailosaurAPI"));
 
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.MINUTE, -525960);
@@ -26,10 +27,10 @@ public class MailosaurTesting {
         //This is done to fetch all the emails for past 1 year (In minutes), as Date type does not work well
 
         MessageSearchParams params = new MessageSearchParams();
-        params.withServer(PropertyLoader.returnConfigValue("MailosaurServerId")).withReceivedAfter(pastDate);
+        params.withServer(propertyLoader.returnConfigValue("MailosaurServerId")).withReceivedAfter(pastDate);
 
         SearchCriteria criteria = new SearchCriteria();
-        criteria.withSentTo("try-mail@" + PropertyLoader.returnConfigValue("MailosaurServerDomain"));
+        criteria.withSentTo("try-mail@" + propertyLoader.returnConfigValue("MailosaurServerDomain"));
 
         Message message = mailosaur.messages().get(params, criteria);
 

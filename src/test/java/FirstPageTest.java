@@ -1,5 +1,4 @@
 import Util.BaseUtility;
-import Util.PropertyLoader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -9,7 +8,9 @@ public class FirstPageTest extends BaseUtility {
     public void testing() {
         System.out.println("FirstPageTest first test invoked");
         firstPageSteps.inputSearchData("Hello23425425");
-        Assert.assertEquals(PropertyLoader.returnConfigValue("expectedURL"), driver.getCurrentUrl(), "The URL was not as expected");
+        Assert.assertEquals(propertyLoader.returnConfigValue("expectedURL"), driver.getCurrentUrl(), "The URL was not as expected");
+
+
     }
 
     @Test

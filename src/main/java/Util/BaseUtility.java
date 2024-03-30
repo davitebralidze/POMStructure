@@ -12,7 +12,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.*;
 import PageSteps.FirstPageSteps;
-import static Util.PropertyLoader.returnConfigValue;
 
 public class BaseUtility {
 
@@ -21,6 +20,7 @@ public class BaseUtility {
     private final String GREEN = "\033[92m";
     private LocalTime localTime;
     protected WebDriver driver;
+    protected PropertyLoader propertyLoader;
     protected FirstPageSteps firstPageSteps;
     protected Logger logger = Logger.getLogger(BaseUtility.class.getName());
 
@@ -37,8 +37,8 @@ public class BaseUtility {
     }
 
     @BeforeMethod(groups = "smoke")
-    @Parameters({"browser"})
-    public void setup(String browser) {
+    @Parameters({"browser", "environment"})
+    public void setup(final String browser, final String environment) {
         if(browser.equals("chrome")) {
             driver = new ChromeDriver();
         } else if (browser.equals("firefox")) {
@@ -47,8 +47,9 @@ public class BaseUtility {
             logger.severe("Such browser is not supported");
             System.exit(0);
         }
+        propertyLoader = new PropertyLoader(environment);
         driver.manage().window().maximize();
-        driver.get(returnConfigValue("url.base"));
+        driver.get(propertyLoader.returnConfigValue("url.base"));
         firstPageSteps = new FirstPageSteps(driver);
     }
 
