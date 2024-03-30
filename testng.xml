@@ -9,6 +9,13 @@
         1) chrome
         2) firefox
         -->
+        <parameter name="environment" value="qa" />
+        <!--
+        Supported environments
+        1) qa
+        2) uat
+        3)live
+        -->
 
         <groups> <!--groups defines the name of the groups that we will execute-->
             <run>
