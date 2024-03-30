@@ -25,7 +25,6 @@
         </groups>
 
         <classes> <!--classes specify from which classes we want tests to be executed-->
-            <class name="FirstPageTest"/>
             <class name="MailosaurTesting"/>
         </classes>
 

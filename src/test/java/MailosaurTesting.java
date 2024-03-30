@@ -19,7 +19,7 @@ public class MailosaurTesting {
     public void testingMailosaur() throws MailosaurException, IOException {
         PropertyLoader propertyLoader = new PropertyLoader("qa");
 
-        MailosaurClient mailosaur = new MailosaurClient(propertyLoader.returnConfigValue("MailosaurAPI"));
+        MailosaurClient mailosaur = new MailosaurClient(propertyLoader.returnConfigValue("MailosaurAPIKey"));
 
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.MINUTE, -525960);
@@ -30,7 +30,7 @@ public class MailosaurTesting {
         params.withServer(propertyLoader.returnConfigValue("MailosaurServerId")).withReceivedAfter(pastDate);
 
         SearchCriteria criteria = new SearchCriteria();
-        criteria.withSentTo("try-mail@" + propertyLoader.returnConfigValue("MailosaurServerDomain"));
+        criteria.withSentTo("barn-area@" + propertyLoader.returnConfigValue("MailosaurServerDomain"));
 
         Message message = mailosaur.messages().get(params, criteria);
 

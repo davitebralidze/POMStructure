@@ -14,11 +14,11 @@ public class PropertyLoader {
 
     public String returnConfigValue(final String property) {
         Logger logger = Logger.getLogger(PropertyLoader.class.getName());
-        String direction = "config.properties";
+        String direction = "config-qa.properties";
         switch (environment) {
-            case "qa" -> direction = "config.properties";
-            case "uat" -> direction = "config.properties";
-            case "live" -> direction = "config.properties";
+            case "qa" -> direction = "config-qa.properties";
+            case "uat" -> direction = "config-uat.properties";
+            case "live" -> direction = "config-live.properties";
             default -> {
                 logger.info("Such environment does not exist");
                 System.exit(0);
