@@ -228,12 +228,13 @@ public class Utils {
         return null;
     }
 
-    public static void killAllureServer(String port) {
+    public static void killAllureServer(String port, long allureServerActiveTime) {
         try {
             ProcessBuilder processBuilder = new ProcessBuilder("cmd", "/c", "Taskkill", "/PID", getPIDOfTheProcess(port), "/T", "/F");
             processBuilder.start();
 //            Runtime rt = Runtime.getRuntime();
 //            rt.exec("cmd /c Taskkill /PID" + getPIDOfTheProcess(port) + " /T /F");
+            Thread.sleep(allureServerActiveTime);
             JOptionPane.showMessageDialog(null, "The test run has been finished!");
             final String ORANGE = "\033[93;1m";
             final String RESET = "\033[0m";
