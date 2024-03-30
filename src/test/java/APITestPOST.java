@@ -1,11 +1,14 @@
+import Util.PropertyLoader;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import org.testng.annotations.Test;
 
 public class APITestPOST {
 
-    public static void main(String[] args) {
-
+    @Test(groups = "smoke")
+    public void testAPI() {
+        PropertyLoader propertyLoader = new PropertyLoader("qa");
 //        String requestBody =
 //                "{\n" +
 //                        "    \"Email\" : \"0713georgia@gmail.com\",\n" +
@@ -16,15 +19,16 @@ public class APITestPOST {
         String requestBodyWithTextBlock =
                 """
                 {
-                    "Email" : "0713georgia@gmail.com",
-                    "Password" : "Gagoshidze1!",
+                    "Email" : "testforautomation@gm.cm",
+                    "Password" : "asdASD123!@#",
                     "RememberMe" : false
                 }""";
 
 
+        System.out.println(propertyLoader.returnConfigValue("credentialsWithJson"));
+//        System.out.println(requestBodyWithTextBlock);
 
-
-        Response response = RestAssured.given().contentType(ContentType.JSON).body(requestBodyWithTextBlock).post("https://softwarege-qa.azurewebsites.net/api/Account/SignIn");
+        Response response = RestAssured.given().contentType(ContentType.JSON).body(propertyLoader.returnConfigValue("credentialsWithJson")).post("https://softwarege-qa.azurewebsites.net/api/Account/SignIn");
 
         System.out.println(response.getStatusCode());
 

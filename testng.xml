@@ -25,7 +25,7 @@
         </groups>
 
         <classes> <!--classes specify from which classes we want tests to be executed-->
-            <class name="MailosaurTesting"/>
+            <class name="APITestPOST"/>
         </classes>
 
     </test>
