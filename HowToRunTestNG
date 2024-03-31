@@ -9,5 +9,5 @@ Also if you want to run specific group of tests the commandline will look in a n
 mvn test -DsuiteFile=${The_Absolute_Path_To_TestNG_File} -Dbrowser=${Name_Of_The_Browser_You_Want_To_Run_Your_Tests} -Denvrionment=${Envrionment_You_Want_To_Execute_Tests} -Dgroups=%{Group_Name}
 
 By default TestNG runs given groups in TestNG.xml file!
-Supported test groups: ${Test_Groups}
+If you want to select multiple groups at once separate them with comma: -Dgroups="First Group, Second Group"
 In case your group has space inside, I will be better to put them in quotation marks
