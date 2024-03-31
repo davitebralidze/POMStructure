@@ -4,6 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+
+
     <groupId>org.example</groupId>
     <artifactId>POMStructure</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -15,6 +17,9 @@
         <aspectj.version>1.9.22</aspectj.version>
     </properties>
 
+
+
+
     <dependencies>
 
         <dependency>
@@ -23,11 +28,11 @@
             <version>5.7.0</version>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>com.codeborne</groupId>-->
-<!--            <artifactId>selenide</artifactId>-->
-<!--            <version>7.0.2</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.codeborne</groupId>-->
+        <!--            <artifactId>selenide</artifactId>-->
+        <!--            <version>7.0.2</version>-->
+        <!--        </dependency>-->
         <!-- Selenide dependency that is not needed -->
 
         <dependency>
@@ -73,6 +78,7 @@
             <scope>runtime</scope>
         </dependency>
 
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -117,6 +123,8 @@
                 <configuration>
                     <source>20</source>
                     <target>20</target>
+
+
                 </configuration>
             </plugin>
 
@@ -128,6 +136,10 @@
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.22/aspectjweaver-1.9.22.jar"
                     </argLine>
+                    <suiteXmlFiles>
+                        <!--suppress UnresolvedMavenProperty -->
+                        <suiteXmlFile>${suiteFile}</suiteXmlFile>
+                    </suiteXmlFiles>
                 </configuration>
             </plugin>
         </plugins>
