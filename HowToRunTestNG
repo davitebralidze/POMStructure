@@ -10,3 +10,4 @@ mvn test -DsuiteFile=${The_Absolute_Path_To_TestNG_File} -Dbrowser=${Name_Of_The
 
 By default TestNG runs given groups in TestNG.xml file!
 Supported test groups: ${Test_Groups}
+In case your group has space inside, I will be better to put them in quotation marks
