@@ -273,6 +273,7 @@ public class Utils {
     }
 
     public static void exportAllureResultAsHTML(String outputDirectory) {
+        //Add a code that will create a folder in the project with a date that will save a current testrun in a project folder
         try {
             // Define the command to execute
             String[] command = {"cmd.exe", "/c", "allure", "generate", "allure-results", "-o", outputDirectory};
