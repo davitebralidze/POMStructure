@@ -5,6 +5,7 @@ import java.time.LocalTime;
 import java.util.logging.Logger;
 
 import io.qameta.allure.Attachment;
+import jdk.jshell.execution.Util;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -66,5 +67,6 @@ public class BaseUtility {
         Duration duration = Duration.between(localTime, LocalTime.now());
         System.out.println(GREEN + "The testing process took " + duration.getSeconds()/3600 + " hours " +(duration.getSeconds()%3600)/60 + " minutes and " + (duration.getSeconds()%60) + " seconds" + RESET);
 //      Utils.killAllureServer(port, 5000);
+        Utils.exportAllureResultAsHTML();
     }
 }

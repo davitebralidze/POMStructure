@@ -13,6 +13,11 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -272,11 +277,37 @@ public class Utils {
         ((JavascriptExecutor) driver).executeScript("window.localStorage.removeItem('"+keyOfElementInLocalStorage+"');");
     }
 
-    public static void exportAllureResultAsHTML(String outputDirectory) {
+    public static void exportAllureResultAsHTML() {
         //Add a code that will create a folder in the project with a date that will save a current testrun in a project folder
+
+        LocalDateTime currentDateTime = LocalDateTime.now();
+
+        // Define the format for the folder name
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss");
+
+        // Format the current date and time according to the specified format
+        String folderName = currentDateTime.format(formatter);
+
+        // Specify the path where you want to create the folder
+        String parentDirectory = "allure-history"; // Replace with your desired parent directory
+
+        // Create the full path for the new folder
+        String folderPath = parentDirectory + File.separator + folderName;
+
+        // Create the folder
+        Path folder = Paths.get(folderPath);
+        try {
+            Files.createDirectories(folder);
+            System.out.println("Folder created: " + folder);
+        } catch (Exception e) {
+            System.err.println("Failed to create folder: " + e.getMessage());
+        }
+
+        //From here we are generating Allure HTML file in a created file
+
         try {
             // Define the command to execute
-            String[] command = {"cmd.exe", "/c", "allure", "generate", "allure-results", "-o", outputDirectory};
+            String[] command = {"cmd.exe", "/c", "allure", "generate", "allure-results", "-o", folderName};
 
             // Start a new process builder
             ProcessBuilder processBuilder = new ProcessBuilder(command);

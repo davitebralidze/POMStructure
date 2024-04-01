@@ -1,5 +1,6 @@
 # Default ignored files
 /shelf/
 allure-results
+allure-history
 .idea
 target
