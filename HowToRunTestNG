@@ -11,3 +11,4 @@ mvn test -DsuiteFile=${The_Absolute_Path_To_TestNG_File} -Dbrowser=${Name_Of_The
 By default TestNG runs given groups in TestNG.xml file!
 If you want to select multiple groups at once separate them with comma: -Dgroups="First Group, Second Group"
 In case your group has space inside, I will be better to put them in quotation marks
+In any case all the variables can be wrapped with quotation marks
