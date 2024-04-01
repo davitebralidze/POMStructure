@@ -278,7 +278,7 @@ public class Utils {
     }
 
     public static void exportAllureResultAsHTML() {
-        //Add a code that will create a folder in the project with a date that will save a current testrun in a project folder
+        //Code below (till the next notice) creates a folder with name of specific date and time to store HTML of allure
 
         LocalDateTime currentDateTime = LocalDateTime.now();
 
