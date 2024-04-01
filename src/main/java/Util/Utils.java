@@ -16,6 +16,7 @@ import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Iterator;
@@ -317,11 +318,16 @@ public class Utils {
         // Create the full path for the new folder
         String folderPath = parentDirectory + File.separator + folderName;
 
-        // Create the folder
-        Path folder = Paths.get(folderPath);
+        // Create the folders
+        Path htmlFolderPath = null;
+        Path allureFilesFolderPath = null;
         try {
-            Files.createDirectories(folder);
-            System.out.println(GREEN + "Folder created: " + folder + RESET);
+            // Create the folder for the specific date and time
+            Path folder = Files.createDirectories(Paths.get(folderPath));
+            // Create the HTML subfolder
+            htmlFolderPath = Files.createDirectories(folder.resolve("HTML"));
+            // Create the allure-files subfolder
+            allureFilesFolderPath = Files.createDirectories(folder.resolve("allure-report"));
         } catch (Exception e) {
             System.err.println(RED + "Failed to create folder: " + e.getMessage() + RESET);
         }
@@ -330,7 +336,7 @@ public class Utils {
 
         try {
             // Define the command to execute
-            String[] command = {"cmd.exe", "/c", "allure", "generate", "allure-results", "-o", folderPath};
+            String[] command = {"cmd.exe", "/c", "allure", "generate", "allure-results", "-o", String.valueOf(htmlFolderPath)};
 
             // Start a new process builder
             ProcessBuilder processBuilder = new ProcessBuilder(command);
@@ -353,6 +359,29 @@ public class Utils {
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
+
+
+        Path sourcePath = Paths.get("allure-results");
+        Path destinationPath = Paths.get(String.valueOf(allureFilesFolderPath));
+
+        // Copy the source folder to the destination folder
+        try {
+            Files.walk(sourcePath)
+                    .forEach(source -> {
+                        Path destination = destinationPath.resolve(sourcePath.relativize(source));
+                        try {
+                            Files.copy(source, destination, StandardCopyOption.REPLACE_EXISTING);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    });
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
+
+
     }
 
 }
