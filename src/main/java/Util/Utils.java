@@ -261,11 +261,11 @@ public class Utils {
         ((JavascriptExecutor) driver).executeScript("window.scrollBy(" + xOffset + ", " + yOffset + ")");
     }
 
-    public static void scrollToTheBottomOfThePage (WebDriver driver) {
+    public static void scrollToTheBottomOfThePage(WebDriver driver) {
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
     }
 
-    public static void scrollToTheTopOfThePage (WebDriver driver) {
+    public static void scrollToTheTopOfThePage(WebDriver driver) {
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, 0");
     }
 
@@ -274,10 +274,29 @@ public class Utils {
     }
 
     public static void deleteLocalStorage(WebDriver driver, String keyOfElementInLocalStorage) {
-        ((JavascriptExecutor) driver).executeScript("window.localStorage.removeItem('"+keyOfElementInLocalStorage+"');");
+        ((JavascriptExecutor) driver).executeScript("window.localStorage.removeItem('" + keyOfElementInLocalStorage + "');");
     }
 
     public static void exportAllureResultAsHTML() {
+
+        // Specify the path to your project directory
+        String projectDirectoryPath = System.getProperty("user.dir");
+
+        // Append "allure-history" to the project directory path
+        String allureHistoryFolderPath = projectDirectoryPath + File.separator + "allure-history";
+
+        // Create a File object for the allure-history folder
+        File allureHistoryFolder = new File(allureHistoryFolderPath);
+
+        // Check if the allure-history folder exists
+        if (!allureHistoryFolder.exists()) {
+            // Create the allure-history folder
+            boolean created = allureHistoryFolder.mkdir();
+            if (created) {
+                System.out.println("allure-history folder created.");
+            }
+        }
+
         //Code below (till the next notice) creates a folder with name of specific date and time to store HTML of allure
 
         LocalDateTime currentDateTime = LocalDateTime.now();
@@ -307,7 +326,7 @@ public class Utils {
 
         try {
             // Define the command to execute
-            String[] command = {"cmd.exe", "/c", "allure", "generate", "allure-results", "-o", folderName};
+            String[] command = {"cmd.exe", "/c", "allure", "generate", "allure-results", "-o", folderPath};
 
             // Start a new process builder
             ProcessBuilder processBuilder = new ProcessBuilder(command);
