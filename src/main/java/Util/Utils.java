@@ -278,6 +278,9 @@ public class Utils {
     }
 
     public static void exportAllureResultAsHTML() {
+        final String GREEN = "\u001B[32m";
+        final String RED = "\u001B[31m";
+        final String RESET = "\u001B[0m";
         //Code below (till the next notice) creates a folder with name of specific date and time to store HTML of allure
 
         LocalDateTime currentDateTime = LocalDateTime.now();
@@ -289,7 +292,7 @@ public class Utils {
         String folderName = currentDateTime.format(formatter);
 
         // Specify the path where you want to create the folder
-        String parentDirectory = "allure-history"; // Replace with your desired parent directory
+        String parentDirectory = "allure-history";
 
         // Create the full path for the new folder
         String folderPath = parentDirectory + File.separator + folderName;
@@ -298,16 +301,16 @@ public class Utils {
         Path folder = Paths.get(folderPath);
         try {
             Files.createDirectories(folder);
-            System.out.println("Folder created: " + folder);
+            System.out.println(GREEN + "Folder created: " + folder + RESET);
         } catch (Exception e) {
-            System.err.println("Failed to create folder: " + e.getMessage());
+            System.err.println(RED + "Failed to create folder: " + e.getMessage() + RESET);
         }
 
         //From here we are generating Allure HTML file in a created file
 
         try {
             // Define the command to execute
-            String[] command = {"cmd.exe", "/c", "allure", "generate", "allure-results", "-o", folderName};
+            String[] command = {"cmd.exe", "/c", "allure", "generate", "allure-results", "-o", folderPath};
 
             // Start a new process builder
             ProcessBuilder processBuilder = new ProcessBuilder(command);
@@ -325,7 +328,7 @@ public class Utils {
             // Check if the process exited with an error
             int exitValue = process.exitValue();
             if (exitValue != 0) {
-                System.err.println("Error: Allure process exited with non-zero exit code: " + exitValue);
+                System.err.println(RED + "Error: Allure process exited with non-zero exit code: " + exitValue + RESET);
             }
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
