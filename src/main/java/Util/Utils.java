@@ -272,4 +272,32 @@ public class Utils {
         ((JavascriptExecutor) driver).executeScript("window.localStorage.removeItem('"+keyOfElementInLocalStorage+"');");
     }
 
+    public static void exportAllureResultAsHTML(String outputDirectory) {
+        try {
+            // Define the command to execute
+            String[] command = {"cmd.exe", "/c", "allure", "generate", "allure-results", "-o", outputDirectory};
+
+            // Start a new process builder
+            ProcessBuilder processBuilder = new ProcessBuilder(command);
+
+            // Redirect any output to the console
+            processBuilder.redirectOutput(ProcessBuilder.Redirect.INHERIT);
+            processBuilder.redirectError(ProcessBuilder.Redirect.INHERIT);
+
+            // Start the process
+            Process process = processBuilder.start();
+
+            // Wait for the process to finish
+            process.waitFor();
+
+            // Check if the process exited with an error
+            int exitValue = process.exitValue();
+            if (exitValue != 0) {
+                System.err.println("Error: Allure process exited with non-zero exit code: " + exitValue);
+            }
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
