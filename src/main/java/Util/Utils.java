@@ -264,4 +264,12 @@ public class Utils {
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, 0");
     }
 
+    public static void deleteLocalStorage(WebDriver driver) {
+        ((JavascriptExecutor) driver).executeScript("window.localStorage.clear();");
+    }
+
+    public static void deleteLocalStorage(WebDriver driver, String keyOfElementInLocalStorage) {
+        ((JavascriptExecutor) driver).executeScript("window.localStorage.removeItem('"+keyOfElementInLocalStorage+"');");
+    }
+
 }
