@@ -6,13 +6,10 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -336,7 +333,7 @@ public class Utils {
 
         try {
             // Define the command to execute
-            String[] command = {"cmd.exe", "/c", "allure", "generate", "allure-results", "-o", String.valueOf(htmlFolderPath)};
+            String[] command = {"cmd.exe", "/c", "allure", "generate", "-o", String.valueOf(htmlFolderPath)};
 
             // Start a new process builder
             ProcessBuilder processBuilder = new ProcessBuilder(command);
@@ -360,28 +357,21 @@ public class Utils {
             e.printStackTrace();
         }
 
-
-        Path sourcePath = Paths.get("allure-results");
-        Path destinationPath = Paths.get(String.valueOf(allureFilesFolderPath));
-
         // Copy the source folder to the destination folder
         try {
-            Files.walk(sourcePath)
-                    .forEach(source -> {
-                        Path destination = destinationPath.resolve(sourcePath.relativize(source));
-                        try {
-                            Files.copy(source, destination, StandardCopyOption.REPLACE_EXISTING);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    });
+            Path sourcePath = Paths.get("allure-results");
+            Path destinationPath = Paths.get(String.valueOf(allureFilesFolderPath));
+            Files.walk(sourcePath).forEach(source -> {
+                Path destination = destinationPath.resolve(sourcePath.relativize(source));
+                try {
+                    Files.copy(source, destination, StandardCopyOption.REPLACE_EXISTING);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-
-
-
     }
 
 }

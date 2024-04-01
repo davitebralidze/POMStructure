@@ -60,7 +60,7 @@ public class BaseUtility {
     }
 
     @AfterSuite(groups = "smoke")
-    public void showTestResults() {
+    public void showTestResults() throws InterruptedException {
 //      String port = Utils.startAllureServeAndGetPort();
         System.out.println(YELLOW + "Process ended at: " + LocalTime.now() + RESET);
         Duration duration = Duration.between(localTime, LocalTime.now());
