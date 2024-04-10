@@ -12,7 +12,7 @@ public class ParallelTesting {
     @Test
     public void parallelTest(String browser) throws InterruptedException{
 
-        System.out.println("Browser name i " + browser);
+        System.out.println("Browser name: " + browser);
         System.out.println("Thread id: " + Thread.currentThread().getId());
 
         if (browser.equalsIgnoreCase("chrome")) {
