@@ -25,7 +25,7 @@ public class DataBaseJDBC2 {
 
 
         String albumName = "Tapestry";
-        String query = "SELECT * FROM music.albumview WHERE album_name='%s'".formatted(albumName);
+        String query = "SELECT * FROM music.albumview WHERE album_name='18 Singles'";
 
         try (var connection = dataSource.getConnection(
                 properties.getProperty("userName"),
@@ -34,31 +34,37 @@ public class DataBaseJDBC2 {
         ) {
             ResultSet resultSet = statement.executeQuery(query);
 
-            var meta = resultSet.getMetaData();
+            /*resultSet is an array, and we need to move index to next one*/
+            resultSet.next();
 
-//            for (int i = 1; i <= meta.getColumnCount(); i++) {
-//                System.out.printf("%d %s %s %n", i, meta.getColumnName(i), meta.getColumnTypeName(i));
+            System.out.println(resultSet.getString("song_title"));
+
+
+//            var meta = resultSet.getMetaData();
+//
+////            for (int i = 1; i <= meta.getColumnCount(); i++) {
+////                System.out.printf("%d %s %s %n", i, meta.getColumnName(i), meta.getColumnTypeName(i));
+////            }
+////
+////            System.out.println("=================================");
+//
+//            for (int i = 1; i < meta.getColumnCount(); i++) {
+//                System.out.printf("%-30s", meta.getColumnName(i).toUpperCase());
 //            }
 //
-//            System.out.println("=================================");
-
-            for (int i = 1; i < meta.getColumnCount(); i++) {
-                System.out.printf("%-30s", meta.getColumnName(i).toUpperCase());
-            }
-
-            System.out.println();
-
-            while (resultSet.next()) {
-//                System.out.printf("%d %s %s %n",
-//                        resultSet.getInt("track_number"),
-//                        resultSet.getString("artist_name"),
-//                        resultSet.getString("song_title")
-//                );
-                for (int i = 1; i < meta.getColumnCount(); i++) {
-                    System.out.printf("%-30s", resultSet.getString(i));
-                }
-                System.out.println();
-            }
+//            System.out.println();
+//
+//            while (resultSet.next()) {
+////                System.out.printf("%d %s %s %n",
+////                        resultSet.getInt("track_number"),
+////                        resultSet.getString("artist_name"),
+////                        resultSet.getString("song_title")
+////                );
+//                for (int i = 1; i < meta.getColumnCount(); i++) {
+//                    System.out.printf("%-30s", resultSet.getString(i));
+//                }
+//                System.out.println();
+//            }
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
