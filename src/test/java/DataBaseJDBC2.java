@@ -14,7 +14,7 @@ public class DataBaseJDBC2 {
 
         Properties properties = new Properties();
         try {
-            properties.load(Files.newInputStream(Path.of("music.properties"), StandardOpenOption.READ));
+            properties.load(Files.newInputStream(Path.of("DBCredentials.properties"), StandardOpenOption.READ));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -28,7 +28,7 @@ public class DataBaseJDBC2 {
         try (var connection = dataSource.getConnection(
                 properties.getProperty("userName"),
                 properties.getProperty("password"));
-             Statement statement = connection.createStatement();
+             Statement statement = connection.createStatement()
         ) {
             ResultSet resultSet = statement.executeQuery(query);
 
