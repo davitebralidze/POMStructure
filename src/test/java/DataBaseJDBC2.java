@@ -23,8 +23,6 @@ public class DataBaseJDBC2 {
         dataSource.setPort(Integer.parseInt(properties.getProperty("port")));
         dataSource.setDatabaseName(properties.getProperty("databaseName"));
 
-
-        String albumName = "Tapestry";
         String query = "SELECT * FROM music.albumview WHERE album_name='18 Singles'";
 
         try (var connection = dataSource.getConnection(
