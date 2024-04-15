@@ -1,0 +1,3 @@
+Clear all of the terminal --> cls
+Install/update powershell --> winget install --id Microsoft.Powershell --source winget
+Check the version --> $PSVersionTable.PSVersion
