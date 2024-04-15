@@ -16,8 +16,9 @@ public class WorkingWithVerification {
         Thread.sleep(5000);
         List<WebElement> elements = driver.findElements(By.className("code"));
         int[] code = {5, 4, 2, 7, 1, 2};
+        int verificationBoxes = elements.size();
 
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < verificationBoxes; i++) {
             elements.get(i).sendKeys(String.valueOf(code[i]));
         }
 
