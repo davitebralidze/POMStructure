@@ -1,5 +1,6 @@
 package PageSteps;
 
+import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -18,13 +19,19 @@ public class FirstPageSteps extends FirstPageElements {
 
     public FirstPageSteps(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(50));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     @Step("Give data to a search bar")
     public void inputSearchData(String input) {
-        wait.until(ExpectedConditions.presenceOfElementLocated(getSearchBarXPath()));
-        driver.findElement(getSearchBarXPath()).sendKeys(input);
+        try {
+            wait.until(ExpectedConditions.presenceOfElementLocated(getSearchBarXPath()));
+            driver.findElement(getSearchBarXPath()).sendKeys(input);
+        } catch (Exception e) {
+            Allure.addAttachment("Error message", "Search bar could not be located");
+            throw e;
+        }
+
     }
 
     @Step("Click on the input bar and fill the information")
