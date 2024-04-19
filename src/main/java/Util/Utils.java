@@ -274,6 +274,10 @@ public class Utils {
         ((JavascriptExecutor) driver).executeScript("window.localStorage.removeItem('" + keyOfElementInLocalStorage + "');");
     }
 
+    public static void JSClick(WebDriver driver, WebElement webElement) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click()", webElement);
+    }
+
     public static void exportAllureResultAsHTML() {
 
         final String GREEN = "\u001B[32m";
