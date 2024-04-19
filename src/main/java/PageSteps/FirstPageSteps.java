@@ -31,7 +31,6 @@ public class FirstPageSteps extends FirstPageElements {
             Allure.addAttachment("Error message", "Search bar could not be located");
             throw e;
         }
-
     }
 
     @Step("Click on the input bar and fill the information")
