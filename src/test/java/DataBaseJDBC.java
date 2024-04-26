@@ -5,9 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Arrays;
 import java.util.Properties;
 
@@ -15,7 +13,7 @@ public class DataBaseJDBC {
 
     private final static String CONN_STRING = "jdbc:mysql://localhost:3306/music";
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
         String username = JOptionPane.showInputDialog(null, "Enter DB Username");
         JPasswordField pf = new JPasswordField();
@@ -40,12 +38,23 @@ public class DataBaseJDBC {
         dataSource.setPort(3306);
         dataSource.setDatabaseName("music");
 
-        try (Connection connection = dataSource.getConnection(username, String.valueOf(password))) {
+        String query = "SELECT * FROM music.albumview WHERE album_name='18 Singles'";
+
+        try (Connection connection = dataSource.getConnection(username, String.valueOf(password));
+             Statement statement = connection.createStatement()) {
             System.out.println("Successfully connected to the DB");
             Arrays.fill(password, ' ');
+
+            ResultSet resultSet = statement.executeQuery(query);
+            /*resultSet is an array, and we need to move index to next one*/
+            resultSet.next();
+            String songTitle = resultSet.getString("song_title");
+            System.out.println(songTitle);
+
         } catch (SQLException e) {
             throw new RuntimeException();
         }
+
 
     }
 }
