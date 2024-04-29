@@ -48,7 +48,14 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="TestNG.C:/Users/User/IdeaProjects/POMStructure/testng.xml">
+  <component name="RunManager" selected="Application.APITestDELETE">
+    <configuration name="APITestDELETE" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="APITestDELETE" />
+      <module name="POMStructure" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ExecuteSingleQuery" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ExecuteSingleQuery" />
       <module name="POMStructure" />
@@ -78,6 +85,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.APITestDELETE" />
         <item itemvalue="TestNG.C:/Users/User/IdeaProjects/POMStructure/testng.xml" />
         <item itemvalue="TestNG.C:/Users/User/IdeaProjects/POMStructure/testngPARALLEL.xml" />
         <item itemvalue="Application.ExecuteSingleQuery" />
