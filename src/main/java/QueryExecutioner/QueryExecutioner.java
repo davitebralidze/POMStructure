@@ -78,9 +78,8 @@ public class QueryExecutioner {
             executeScriptForAlter(dataSource, properties, query);
         }
     }
-    //TODO Add Postgre connections
+    //TODO Add Postgre connection
     public static class PostgreSQL{}
-
 
     private static String executeScriptForSelect (DataSource dataSource, String query, String columnName, Properties properties) {
 
@@ -102,6 +101,7 @@ public class QueryExecutioner {
             throw new RuntimeException(e);
         }
     }
+
 }
 
 
