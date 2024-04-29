@@ -26,13 +26,17 @@ public class QueryExecutioner {
             dataSource.setPort(Integer.parseInt(properties.getProperty("port")));
             dataSource.setDatabaseName(properties.getProperty("databaseName"));
 
-            try (var connection = dataSource.getConnection(properties.getProperty("userName"), properties.getProperty("password")); Statement statement = connection.createStatement()) {
+            try (var connection = dataSource.getConnection(properties.getProperty("userName"),
+                    properties.getProperty("password"));
+                 Statement statement = connection.createStatement()) {
+
                 ResultSet resultSet = statement.executeQuery(query);
                 resultSet.next();
                 return resultSet.getString(columnName);
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
+
         }
 
         public static void executeDataAlteringQuery(String query) {
@@ -54,8 +58,52 @@ public class QueryExecutioner {
             }
         }
     }
-    //TODO Add MS and Postgre connections
-    public static class MSSQL {}
+    public static class MSSQL {
+        public static String selectSpecificDataFromColumn(String query, String columnName) {
+            Properties properties = new Properties();
+            try {
+                properties.load(Files.newInputStream(Path.of("DBCredentials.properties"), StandardOpenOption.READ));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            var dataSource = new SQLServerDataSource();
+            dataSource.setServerName(properties.getProperty("serverName"));
+            dataSource.setPortNumber(Integer.parseInt(properties.getProperty("port")));
+            dataSource.setDatabaseName(properties.getProperty("databaseName"));
+
+            try (var connection = dataSource.getConnection(properties.getProperty("userName"),
+                    properties.getProperty("password"));
+                 Statement statement = connection.createStatement()) {
+
+                ResultSet resultSet = statement.executeQuery(query);
+                resultSet.next();
+                return resultSet.getString(columnName);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
+        }
+
+        public static void executeDataAlteringQuery(String query) {
+            Properties properties = new Properties();
+            try {
+                properties.load(Files.newInputStream(Path.of("DBCredentials.properties"), StandardOpenOption.READ));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            var dataSource = new SQLServerDataSource();
+            dataSource.setServerName(properties.getProperty("serverName"));
+            dataSource.setPortNumber(Integer.parseInt(properties.getProperty("port")));
+            dataSource.setDatabaseName(properties.getProperty("databaseName"));
+
+            try (var connection = dataSource.getConnection(properties.getProperty("userName"), properties.getProperty("password")); Statement statement = connection.createStatement()) {
+                statement.executeUpdate(query);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+    //TODO Add Postgre connections
     public static class PostgreSQL{}
 
     }
