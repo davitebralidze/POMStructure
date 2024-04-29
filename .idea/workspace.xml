@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="15b06431-bd85-4f85-a589-de11c6339458" name="Changes" comment="Adding new codes" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="main" />
+      </list>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/PageElements/FirstPageElements.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/PageSteps/FirstPageSteps.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/Util/BaseUtility.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/Util/PropertyLoader.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/Util/Utils.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/test/java/FirstPageTest.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2YRQYgHUe5hC1qzk1v9ilo2LNea" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/IdeaProjects/TestWork&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.20344828&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Docker&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\IdeaProjects\POMStructure" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.ExecuteSingleQuery">
+    <configuration name="DataBaseJDBC" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DataBaseJDBC" />
+      <module name="POMStructure" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DataBaseJDBC2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DataBaseJDBC2" />
+      <module name="POMStructure" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EvalTestMSSQL" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="EvalTestMSSQL" />
+      <module name="POMStructure" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExecuteSingleQuery" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ExecuteSingleQuery" />
+      <module name="POMStructure" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Testojmg" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Testojmg" />
+      <module name="POMStructure" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ExecuteSingleQuery" />
+        <item itemvalue="Application.Testojmg" />
+        <item itemvalue="Application.EvalTestMSSQL" />
+        <item itemvalue="Application.DataBaseJDBC" />
+        <item itemvalue="Application.DataBaseJDBC2" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="15b06431-bd85-4f85-a589-de11c6339458" name="Changes" comment="" />
+      <created>1700485964066</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1700485964066</updated>
+    </task>
+    <task id="LOCAL-00020" summary="POMStructure">
+      <created>1704807970417</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1704807970418</updated>
+    </task>
+    <task id="LOCAL-00021" summary="POMStructure">
+      <created>1704807984847</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1704807984847</updated>
+    </task>
+    <task id="LOCAL-00022" summary="POMStructure">
+      <created>1704808019313</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1704808019313</updated>
+    </task>
+    <task id="LOCAL-00023" summary="POMStructure">
+      <created>1704808243668</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1704808243668</updated>
+    </task>
+    <task id="LOCAL-00024" summary="POMStructure">
+      <created>1704808747005</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1704808747005</updated>
+    </task>
+    <task id="LOCAL-00025" summary="POMStructure">
+      <created>1704808782276</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1704808782276</updated>
+    </task>
+    <task id="LOCAL-00026" summary="POMStructure">
+      <created>1704810053715</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1704810053715</updated>
+    </task>
+    <task id="LOCAL-00027" summary="POMStructure">
+      <created>1705299585711</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1705299585711</updated>
+    </task>
+    <task id="LOCAL-00028" summary="POMStructure">
+      <created>1705299833653</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1705299833653</updated>
+    </task>
+    <task id="LOCAL-00029" summary="POMStructure">
+      <created>1705300347053</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1705300347053</updated>
+    </task>
+    <task id="LOCAL-00030" summary="POMStructure">
+      <created>1705304466306</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1705304466306</updated>
+    </task>
+    <task id="LOCAL-00031" summary="POMStructure">
+      <created>1705304921383</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1705304921383</updated>
+    </task>
+    <task id="LOCAL-00032" summary="POMStructure">
+      <created>1705310844206</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1705310844206</updated>
+    </task>
+    <task id="LOCAL-00033" summary="POMStructure">
+      <created>1705310866322</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1705310866322</updated>
+    </task>
+    <task id="LOCAL-00034" summary="POMStructure">
+      <created>1705311259979</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1705311259979</updated>
+    </task>
+    <task id="LOCAL-00035" summary="POMStructure">
+      <created>1705317600167</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1705317600167</updated>
+    </task>
+    <task id="LOCAL-00036" summary="POMStructure">
+      <created>1705317633749</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1705317633749</updated>
+    </task>
+    <task id="LOCAL-00037" summary="POMStructure">
+      <created>1705330709379</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1705330709379</updated>
+    </task>
+    <task id="LOCAL-00038" summary="POMStructure">
+      <created>1705472914626</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1705472914626</updated>
+    </task>
+    <task id="LOCAL-00039" summary="POMStructure">
+      <created>1706782965655</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1706782965655</updated>
+    </task>
+    <task id="LOCAL-00040" summary="POMStructure">
+      <created>1706853789680</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1706853789680</updated>
+    </task>
+    <task id="LOCAL-00041" summary="POMStructure">
+      <created>1706855705843</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1706855705843</updated>
+    </task>
+    <task id="LOCAL-00042" summary="POMStructure">
+      <created>1706855742826</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1706855742826</updated>
+    </task>
+    <task id="LOCAL-00043" summary="POMStructure">
+      <created>1706871575099</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1706871575099</updated>
+    </task>
+    <task id="LOCAL-00044" summary="POMStructure">
+      <created>1707118651260</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1707118651260</updated>
+    </task>
+    <task id="LOCAL-00045" summary="POMStructure">
+      <created>1707119271862</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1707119271862</updated>
+    </task>
+    <task id="LOCAL-00046" summary="POMStructure">
+      <created>1707119475218</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1707119475218</updated>
+    </task>
+    <task id="LOCAL-00047" summary="POMStructure">
+      <created>1707141136646</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1707141136646</updated>
+    </task>
+    <task id="LOCAL-00048" summary="POMStructure">
+      <created>1707142023910</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1707142023910</updated>
+    </task>
+    <task id="LOCAL-00049" summary="POMStructure">
+      <created>1707201198845</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1707201198845</updated>
+    </task>
+    <task id="LOCAL-00050" summary="POMStructure">
+      <created>1707201254873</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1707201254874</updated>
+    </task>
+    <task id="LOCAL-00051" summary="POMStructure">
+      <created>1707202255111</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1707202255111</updated>
+    </task>
+    <task id="LOCAL-00052" summary="POMStructure">
+      <created>1707220996492</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1707220996492</updated>
+    </task>
+    <task id="LOCAL-00053" summary="POMStructure">
+      <created>1707221333288</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1707221333288</updated>
+    </task>
+    <task id="LOCAL-00054" summary="POMStructure">
+      <created>1707223384689</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1707223384689</updated>
+    </task>
+    <task id="LOCAL-00055" summary="POMStructure">
+      <created>1707223603111</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1707223603111</updated>
+    </task>
+    <task id="LOCAL-00056" summary="POMStructure">
+      <created>1707225787646</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1707225787646</updated>
+    </task>
+    <task id="LOCAL-00057" summary="POMStructure">
+      <created>1707225888468</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1707225888468</updated>
+    </task>
+    <task id="LOCAL-00058" summary="POMStructure">
+      <created>1707373835629</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1707373835629</updated>
+    </task>
+    <task id="LOCAL-00059" summary="POMStructure">
+      <created>1707741696310</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1707741696311</updated>
+    </task>
+    <task id="LOCAL-00060" summary="POMStructure">
+      <created>1707743034854</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1707743034854</updated>
+    </task>
+    <task id="LOCAL-00061" summary="POMStructure">
+      <created>1707743618748</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1707743618748</updated>
+    </task>
+    <task id="LOCAL-00062" summary="POMStructure">
+      <created>1708427978036</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1708427978037</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Adding new codes">
+      <created>1710406129414</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1710406129415</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Adding new codes">
+      <created>1711547689568</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1711547689568</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Adding new codes">
+      <created>1711968225558</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1711968225558</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Adding new codes">
+      <created>1711975707750</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1711975707750</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Adding new codes">
+      <created>1712918139062</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1712918139062</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Adding new codes">
+      <created>1712925488534</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1712925488534</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="POMStructure" />
+    <MESSAGE value="Adding new codes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding new codes" />
+  </component>
+</project>
