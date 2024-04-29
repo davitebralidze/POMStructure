@@ -2,6 +2,7 @@ package Util;
 
 import java.time.Duration;
 import java.time.LocalTime;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 import io.qameta.allure.Attachment;
@@ -50,6 +51,8 @@ public class BaseUtility {
         propertyLoader = new PropertyLoader(environment);
         driver.manage().window().maximize();
         driver.get(propertyLoader.returnConfigValue("url.base"));
+        //Setting implicit wait
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
         firstPageSteps = new FirstPageSteps(driver);
     }
 
