@@ -18,7 +18,7 @@ public class HandlingDownloadDirectory {
 
         driver.get("https://qaplayground.dev/apps/download/");
         driver.findElement(By.xpath("//*[@id=\"file\"]")).click();
-        Thread.sleep(5000);
+        driver.quit();
 
     }
 }
