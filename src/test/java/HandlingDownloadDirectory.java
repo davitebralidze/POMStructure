@@ -40,7 +40,7 @@ public class HandlingDownloadDirectory {
         File file = new File(filePath);
         downloadButton.click();
 
-        while(!file.exists());
+        while(!file.exists()) {try {Thread.sleep(1000);} catch (Exception ignored) {}}
 
         driver.quit();
 
