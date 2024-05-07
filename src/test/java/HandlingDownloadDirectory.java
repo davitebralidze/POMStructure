@@ -29,14 +29,10 @@ public class HandlingDownloadDirectory {
 
 
         WebElement downloadButton = driver.findElement(By.xpath("//*[@id=\"file\"]"));
-
-
         String downloadUrl = downloadButton.getAttribute("href");
         String[] parts = downloadUrl.split("/");
         String fileName = parts[parts.length - 1];
         String filePath = System.getProperty("user.dir") + File.separator + "Downloads"+File.separator + fileName;
-
-
         File file = new File(filePath);
         downloadButton.click();
 
