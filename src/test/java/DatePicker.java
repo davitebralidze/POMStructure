@@ -12,22 +12,6 @@ public class DatePicker {
 
     public static void main(String[] args) throws InterruptedException {
 
-
-        HashMap<String , Month> monthMap = new HashMap<String , Month>();
-
-        monthMap.put("January" , Month.JANUARY);
-        monthMap.put("February" , Month.FEBRUARY);
-        monthMap.put("March" , Month.MARCH);
-        monthMap.put("April" , Month.APRIL);
-        monthMap.put("May" , Month.MAY);
-        monthMap.put("June" , Month.JUNE);
-        monthMap.put("July" , Month.JULY);
-        monthMap.put("August" , Month.AUGUST);
-        monthMap.put("September" , Month.SEPTEMBER);
-        monthMap.put("October" , Month.OCTOBER);
-        monthMap.put("November" , Month.NOVEMBER);
-        monthMap.put("December" , Month.DECEMBER);
-
         String date = "5";
         String month = "June";
         String year = "2028";
