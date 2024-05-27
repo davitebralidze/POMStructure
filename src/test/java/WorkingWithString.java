@@ -7,5 +7,6 @@ public class WorkingWithString {
         System.out.println(stringToWorkOn.split("is")[1].split("and")[0].trim());
         //split() functions splits the string in array of strings (removes the string by which we split the text)
         //trim() removes extra white spaces at the beginning and end
+        System.out.println(stringToWorkOn.substring(0, 5));
     }
 }
