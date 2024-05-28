@@ -1,8 +1,6 @@
-import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -20,7 +18,6 @@ public class BrowseWindowsHandleStraightToLastTab {
         Set<String> windows = driver.getWindowHandles();
         List<String> windowList = new ArrayList<>(windows);
 
-
         for (String handle : windows) {
             driver.switchTo().window(handle);
         }
@@ -31,6 +28,8 @@ public class BrowseWindowsHandleStraightToLastTab {
         driver.close();
 
         driver.switchTo().window((String) windows.toArray()[0]);
+
+        System.out.println(driver.findElement(By.xpath("//*[@id=\"open\"]")).getText());
 
         driver.quit();
 
