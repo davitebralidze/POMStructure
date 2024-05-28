@@ -40,6 +40,9 @@ public class BrowserWindowsHandle {
 
         /*This can also be done in a next way
 
+        --At first we need to track how many windows are opened
+        Set<String> windows = driver.getWindowHandles();
+
         --Switch to the new(!!!LAST!!!) tab (basically we will have two tabs)
         for (String handle : handles) {
             driver.switchTo().window(handle);
