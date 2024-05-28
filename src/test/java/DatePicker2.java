@@ -79,9 +79,9 @@ public class DatePicker2 {
         month = month.toLowerCase();
         month = month.substring(0, 1).toUpperCase() + month.substring(1);
 
-        Month vmonth = monthMap.get(month);
+        Month monthObject = monthMap.get(month);
 
-        return vmonth;
+        return monthObject;
     }
 
 }
