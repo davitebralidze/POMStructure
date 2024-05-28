@@ -1,7 +1,6 @@
 import PojoClass.Address;
 import PojoClass.Person;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.dockerjava.core.dockerfile.DockerfileStatement;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,20 +17,12 @@ public class ReadingDataJackson {
         Person person = objectMapper.readValue(file, Person.class);
 
 
-
         List<Address> addresses = person.getAddress();
         Address firstAddress = addresses.get(0);
         Address secondAddress = addresses.get(1);
 
         System.out.println(firstAddress.getStreet());
         System.out.println(secondAddress.getStreet());
-
-
-//        for(Address address : person.getAddress()) {
-//            System.out.println(address.getStreet());
-//            System.out.println(address.getCity());
-//            System.out.println(address.getState());
-//        }
 
     }
 
