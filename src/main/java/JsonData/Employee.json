@@ -1,0 +1,16 @@
+{
+  "firstName" : "John",
+  "lastName" : "Kennedy",
+  "address" : [
+    {
+      "street" : "TestStreet",
+      "city" : "TestCity",
+      "state" : "TestState"
+    },
+    {
+      "street" : "TestStreet2",
+      "city" : "TestCity2",
+      "state" : "TestState2"
+    }
+  ]
+}
