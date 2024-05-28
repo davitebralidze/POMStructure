@@ -1,16 +1,16 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 public class BrowserWindowsHandle {
 
     WebDriver driver = new ChromeDriver();
-    Actions action = new Actions(driver);
 
     @Test
     public void handleNewTab() throws InterruptedException {
@@ -37,25 +37,6 @@ public class BrowserWindowsHandle {
         driver.switchTo().window(firstWindow);
 
         driver.quit();
-
-        /*This can also be done in a next way
-
-        --At first we need to track how many windows are opened
-        Set<String> windows = driver.getWindowHandles();
-
-        --Switch to the new(!!!LAST!!!) tab (basically we will have two tabs)
-        for (String handle : windows) {
-            driver.switchTo().window(handle);
-        }
-        --We can also direct to the latest tab without loop
-        driver.switchTo().window((String) windows.toArray()[windows.size-1])
-
-        --Close the current tab
-        driver.close();
-
-        --Return to the main window
-        driver.switchTo().window((String) windows.toArray()[0]);
-        */
 
     }
 
