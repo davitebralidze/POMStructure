@@ -44,7 +44,7 @@ public class BrowserWindowsHandle {
         Set<String> windows = driver.getWindowHandles();
 
         --Switch to the new(!!!LAST!!!) tab (basically we will have two tabs)
-        for (String handle : handles) {
+        for (String handle : windows) {
             driver.switchTo().window(handle);
         }
         --We can also direct to the latest tab without loop
