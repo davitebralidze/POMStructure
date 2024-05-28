@@ -33,6 +33,5 @@ public class BrowseWindowsHandleStraightToLastTab {
 
         driver.quit();
 
-
     }
 }
