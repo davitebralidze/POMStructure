@@ -258,6 +258,13 @@ public class Utils {
         ((JavascriptExecutor) driver).executeScript("window.scrollBy(" + xOffset + "," + yOffset + ")");
     }
 
+    public static void scrollByPercentage(WebDriver driver, int percentageOfXm, int percentageOfY) {
+        int xOffset = (int) ((JavascriptExecutor) driver).executeScript("return window.pageXOffset");
+        int yOffset = (int) ((JavascriptExecutor) driver).executeScript("return window.pageYOffset");
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(" + (xOffset*percentageOfXm)/100 + "," + (yOffset*percentageOfY)/100 + ")");
+        //TODO check whether this code is valid
+    }
+
     public static void scrollToTheBottomOfThePage(WebDriver driver) {
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
     }
