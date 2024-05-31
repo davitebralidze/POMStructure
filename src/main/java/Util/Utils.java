@@ -259,6 +259,10 @@ public class Utils {
     }
 
     public static void scrollByPercentage(WebDriver driver, int percentageOfX, int percentageOfY) {
+        if (percentageOfX < 0 || percentageOfX > 100 || percentageOfY < 0 || percentageOfY > 100) {
+            throw new IllegalArgumentException("Percentages must be between 0 and 100");
+        }
+
         long viewportWidth = (long) ((JavascriptExecutor) driver).executeScript("return window.innerWidth");
         long viewportHeight = (long) ((JavascriptExecutor) driver).executeScript("return window.innerHeight");
 
