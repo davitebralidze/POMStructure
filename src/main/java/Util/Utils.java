@@ -258,6 +258,14 @@ public class Utils {
         ((JavascriptExecutor) driver).executeScript("window.scrollBy(" + xOffset + ", " + yOffset + ")");
     }
 
+    public static void scrollHorizontal(WebDriver driver, long xOffset) {
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(" + xOffset + ", 0)");
+    }
+
+    public static void scrollVertical(WebDriver driver, long yOffset) {
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, " + yOffset + ")");
+    }
+
     public static void scrollToTheBottomOfThePage(WebDriver driver) {
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
     }
