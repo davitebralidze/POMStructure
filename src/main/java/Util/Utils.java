@@ -255,15 +255,15 @@ public class Utils {
     }
 
     public static void scrollByOffset(WebDriver driver, long xOffset, long yOffset) {
-        ((JavascriptExecutor) driver).executeScript("window.scrollBy(" + xOffset + ", " + yOffset + ")");
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(" + xOffset + "," + yOffset + ")");
     }
 
     public static void scrollHorizontal(WebDriver driver, long xOffset) {
-        ((JavascriptExecutor) driver).executeScript("window.scrollBy(" + xOffset + ", 0)");
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(" + xOffset + ",0)");
     }
 
     public static void scrollVertical(WebDriver driver, long yOffset) {
-        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, " + yOffset + ")");
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0," + yOffset + ")");
     }
 
     public static void scrollToTheBottomOfThePage(WebDriver driver) {
