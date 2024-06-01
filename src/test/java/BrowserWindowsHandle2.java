@@ -27,6 +27,10 @@ public class BrowserWindowsHandle2 {
 
         System.out.println(driver.findElement(By.xpath("//*[@id=\"main\"]/div/div/div/div[1]/h1")).getText());
 
+        driver.switchTo().window(tabIDs.get(0));
+
+        System.out.println(driver.findElement(By.xpath("//*[@id=\"main\"]/div/div/div/div/div[2]/div[1]/h2")).getText());
+
         driver.quit();
 
     }
