@@ -9,6 +9,7 @@ import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.*;
@@ -29,6 +30,10 @@ public class BaseUtility {
     public byte[] takeScreenshot() {
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
+
+    //TODO Check this code
+    @Attachment(value = "Screenshot", type = "image/png")
+    public byte[] takeScreenshotOfSpecificElement(WebElement element) {return (element.getScreenshotAs(OutputType.BYTES));}
 
     @BeforeSuite(groups = "smoke")
     public void allureCleaner() {
