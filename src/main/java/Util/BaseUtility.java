@@ -1,5 +1,6 @@
 package Util;
 
+import java.io.IOException;
 import java.time.Duration;
 import java.time.LocalTime;
 import java.util.concurrent.TimeUnit;
@@ -37,10 +38,11 @@ public class BaseUtility {
     public byte[] takeScreenshotOfSpecificElement(WebElement element) {return (element.getScreenshotAs(OutputType.BYTES));}
 
     @BeforeSuite(groups = "smoke")
-    public void allureCleaner() {
+    public void allureCleaner() throws IOException {
         localTime = LocalTime.now();
         System.out.println(YELLOW + "Process started at: " + localTime + RESET);
         Utils.deleteAllureReports();
+        Utils.incrementCellA1();
     }
 
     @BeforeMethod(groups = "smoke")
@@ -69,12 +71,10 @@ public class BaseUtility {
     }
 
     @AfterSuite(groups = "smoke")
-    public void showTestResults() throws InterruptedException {
-//      String port = Utils.startAllureServeAndGetPort();
+    public void showTestResults() throws IOException {
         System.out.println(YELLOW + "Process ended at: " + LocalTime.now() + RESET);
         Duration duration = Duration.between(localTime, LocalTime.now());
         System.out.println(GREEN + "The testing process took " + duration.getSeconds()/3600 + " hours " +(duration.getSeconds()%3600)/60 + " minutes and " + (duration.getSeconds()%60) + " seconds" + RESET);
-//      Utils.killAllureServer(port, 5000);
         Utils.exportAllureResultAsHTML();
     }
 }

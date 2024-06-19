@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Test Suite"> <!-- Here you set the name of the test suite!-->
+    <test name="The name was set from testng file"> <!--name defines the name of the test set that we will execute-->
+
+        <parameter name="browser" value="chrome"/>
+        <parameter name="environment" value="qa"/>
+
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+
+        <classes> <!--classes specify from which classes we want tests to be executed-->
+            <class name="FirstPageTest"/>
+            <class name="Util.BaseUtility"/>
+        </classes>
+
+    </test>
+</suite>

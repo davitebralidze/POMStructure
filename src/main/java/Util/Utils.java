@@ -2,6 +2,8 @@ package Util;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,6 +11,8 @@ import org.openqa.selenium.WebElement;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -293,9 +297,8 @@ public class Utils {
         ((JavascriptExecutor) driver).executeScript("arguments[0].click()", webElement);
     }
 
-    public static void exportAllureResultAsHTML() {
+    public static void exportAllureResultAsHTML() throws IOException {
 
-        final String GREEN = "\u001B[32m";
         final String RED = "\u001B[31m";
         final String RESET = "\u001B[0m";
 
@@ -318,14 +321,14 @@ public class Utils {
         }
 
         //Code below (till the next notice) creates a folder with name of specific date and time to store HTML of allure
-
         LocalDateTime currentDateTime = LocalDateTime.now();
 
         // Define the format for the folder name
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss");
 
         // Format the current date and time according to the specified format
-        String folderName = currentDateTime.format(formatter);
+        String testRunNumber = readCellA1();
+        String folderName = "Test run №"+testRunNumber+" - "+currentDateTime.format(formatter);
 
         // Specify the path where you want to create the folder
         String parentDirectory = "allure-history";
@@ -333,16 +336,9 @@ public class Utils {
         // Create the full path for the new folder
         String folderPath = parentDirectory + File.separator + folderName;
 
-//        // Create the folders
-//        Path htmlFolderPath = null;
-//        Path allureFilesFolderPath = null;
         try {
             // Create the folder for the specific date and time
             Path folder = Files.createDirectories(Paths.get(folderPath));
-//            // Create the HTML subfolder
-//            htmlFolderPath = Files.createDirectories(folder.resolve("HTML"));
-//            // Create the allure-files subfolder
-//            allureFilesFolderPath = Files.createDirectories(folder.resolve("allure-report"));
         } catch (Exception e) {
             System.err.println(RED + "Failed to create folder: " + e.getMessage() + RESET);
         }
@@ -374,22 +370,64 @@ public class Utils {
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
-
-//        // Copy the source folder to the destination folder
-//        try {
-//            Path sourcePath = Paths.get("allure-results");
-//            Path destinationPath = Paths.get(String.valueOf(allureFilesFolderPath));
-//            Files.walk(sourcePath).forEach(source -> {
-//                Path destination = destinationPath.resolve(sourcePath.relativize(source));
-//                try {
-//                    Files.copy(source, destination, StandardCopyOption.REPLACE_EXISTING);
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//            });
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
     }
 
+    public static void incrementCellA1() throws IOException {
+        try (FileInputStream fis = new FileInputStream("TestRunCounter.xlsx");
+             Workbook workbook = new XSSFWorkbook(fis)) {
+
+            // Get the first sheet
+            Sheet sheet = workbook.getSheetAt(0);
+
+            // Get the first row (A1 is in the first row and first column, which are index 0)
+            Row row = sheet.getRow(0);
+            if (row == null) {
+                row = sheet.createRow(0); // Create the row if it does not exist
+            }
+
+            // Get the first cell
+            Cell cell = row.getCell(0);
+            if (cell == null) {
+                cell = row.createCell(0); // Create the cell if it does not exist
+            }
+
+            // Increment the cell value if it is numeric
+            if (cell.getCellType() == CellType.NUMERIC) {
+                cell.setCellValue(cell.getNumericCellValue() + 1);
+            } else {
+                // If the cell is not numeric, initialize it to 1
+                cell.setCellValue(1);
+            }
+
+            // Write the updated workbook back to the file
+            try (FileOutputStream fos = new FileOutputStream("TestRunCounter.xlsx")) {
+                workbook.write(fos);
+            }
+        }
+    }
+
+    public static String readCellA1() throws IOException {
+        try (FileInputStream fis = new FileInputStream("TestRunCounter.xlsx"); Workbook workbook = new XSSFWorkbook(fis)) {
+            Sheet sheet = workbook.getSheetAt(0);
+            Row row = sheet.getRow(0);
+            if (row == null) {
+                return null;
+            }
+            Cell cell = row.getCell(0);
+            if (cell == null) {
+                return null;
+            }
+            return switch (cell.getCellType()) {
+                case STRING -> cell.getStringCellValue();
+                case NUMERIC -> {
+                    if (DateUtil.isCellDateFormatted(cell)) {
+                        yield cell.getDateCellValue().toString();
+                    } else {
+                        yield String.valueOf((int) cell.getNumericCellValue());
+                    }
+                }
+                default -> null;
+            };
+        }
+    }
 }
