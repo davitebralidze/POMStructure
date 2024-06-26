@@ -186,7 +186,6 @@
                         <!--suppress UnresolvedMavenProperty -->
                         <suiteXmlFile>${project.basedir}/${suiteFile}</suiteXmlFile>
                     </suiteXmlFiles>
-                    <redirectTestOutputToFile>true</redirectTestOutputToFile>
                 </configuration>
             </plugin>
 
