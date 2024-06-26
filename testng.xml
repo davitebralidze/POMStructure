@@ -26,7 +26,6 @@
 
         <classes> <!--classes specify from which classes we want tests to be executed-->
             <class name="APITestPOST"/>
-            <class name="Util.BaseUtility"/>
         </classes>
 
     </test>
