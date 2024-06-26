@@ -21,6 +21,12 @@
     <dependencies>
 
         <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+            <version>3.3.1</version>
+        </dependency>
+
+        <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>5.8.0</version>
@@ -42,7 +48,7 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.9.0</version>
+            <version>7.10.2</version>
             <scope>compile</scope>
             <!-- In official documents for the scope tag there is written Test, which means that this dependency will be
             included in case tests will run from testng file, and not in other cases.
@@ -171,7 +177,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.20</version>
+                <version>3.3.0</version>
                 <configuration>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.22/aspectjweaver-1.9.22.jar"
@@ -182,6 +188,7 @@
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 

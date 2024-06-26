@@ -328,7 +328,7 @@ public class Utils {
 
         // Format the current date and time according to the specified format
         String testRunNumber = readCellA1();
-        String folderName = "Test run №"+testRunNumber+" - "+currentDateTime.format(formatter);
+        String folderName = "Test run #"+testRunNumber+" - "+currentDateTime.format(formatter);
 
         // Specify the path where you want to create the folder
         String parentDirectory = "allure-history";
