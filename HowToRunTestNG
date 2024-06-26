@@ -1,12 +1,12 @@
 To run tests with TestNG you will need next commands:
-mvn test -DsuiteFile=${testng_xml_name} -Dbrowser=${Browser_name} -Denvrionment=${Envrionment_Name}
+mvn test -D suiteFile=${testng_xml_name} -Dbrowser=${Browser_name} -Denvrionment=${Envrionment_Name}
 
 By default TestNG runs on QA environment and Chrome browser!
 Supported browsers (Remember, put the string exactly as given): 1) chrome 2) firefox 3) opera 4) safari
 Supported environments (Remember, put the string exactly as given): 1) qa 2) uat 3) live
 
 Also if you want to run specific group of tests the commandline will look in a next way:
-mvn test -DsuiteFile=${testng_xml_name} -Dbrowser=${Name_Of_The_Browser_You_Want_To_Run_Your_Tests} -Denvrionment=${Envrionment_You_Want_To_Execute_Tests} -Dgroups=%{Group_Name}
+mvn test -D suiteFile=${testng_xml_name} -Dbrowser=${Name_Of_The_Browser_You_Want_To_Run_Your_Tests} -Denvrionment=${Envrionment_You_Want_To_Execute_Tests} -Dgroups=%{Group_Name}
 
 By default TestNG runs given groups in TestNG.xml file!
 If you want to select multiple groups at once separate them with comma: -Dgroups="First Group, Second Group"
