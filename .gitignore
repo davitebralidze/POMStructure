@@ -5,3 +5,4 @@ allure-history
 target
 .idea
 DBCredentials.properties
+TestRunCounter.xlsx

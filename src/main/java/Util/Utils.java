@@ -289,7 +289,7 @@ public class Utils {
         ((JavascriptExecutor) driver).executeScript("window.localStorage.clear();");
     }
 
-    public static void deleteLocalStorage(WebDriver driver, String keyOfElementInLocalStorage) {
+    public static void deleteConcreteLocalStorage(WebDriver driver, String keyOfElementInLocalStorage) {
         ((JavascriptExecutor) driver).executeScript("window.localStorage.removeItem('" + keyOfElementInLocalStorage + "');");
     }
 
@@ -430,4 +430,21 @@ public class Utils {
             };
         }
     }
+
+    public static void jsHover(WebDriver driver , WebElement element) {
+        // Create a JavascriptExecutor instance
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+
+        // JavaScript code to create a mouseover event
+        String mouseOverScript = "var event = new MouseEvent('mouseover', { " +
+                "view: window, " +
+                "bubbles: true, " +
+                "cancelable: true " +
+                "}); " +
+                "arguments[0].dispatchEvent(event);";
+
+        // Execute the JavaScript to hover over the element
+        jsExecutor.executeScript(mouseOverScript, element);
+    }
+
 }
