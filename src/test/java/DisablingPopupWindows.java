@@ -4,7 +4,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.Arrays;
 
-public class HandlingPopupWindows {
+public class DisablingPopupWindows {
     public static void main(String[] args) {
         ChromeOptions options = new ChromeOptions();
         options.setExperimentalOption("excludeSwitches", Arrays.asList("disable-popup-blocking"));
