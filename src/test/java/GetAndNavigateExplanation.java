@@ -23,6 +23,8 @@ navigate().to() navigates to the page by changing the URL like doing forward/bac
 
 Whereas, get() refreshes the page to changing the URL.
 
+navigate().to() accepts String and URL object, whereas get() only accepts String
+
 So, in cases where application domain changes, both the method behaves similarly. That is, page is refreshed in both the cases. But, in single-page applications, while navigate().to() do not refreshes the page, get() do.
 
 Moreover, this is the reason browser history is getting lost when get() is used due to application being refreshed.

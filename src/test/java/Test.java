@@ -5,12 +5,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
 
-import javax.xml.crypto.Data;
 import java.time.Duration;
 import java.util.List;
 
@@ -19,27 +18,33 @@ public class Test {
 
 
         String URL = "https://flatrocktech.com/";
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless=new");
-        WebDriver driver = new ChromeDriver(options);
+        WebDriver driver = new ChromeDriver();
         Actions actions = new Actions(driver);
         SoftAssert softAssert = new SoftAssert();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         driver.manage().window().maximize();
         driver.get(URL);
 
-        Thread.sleep(5000);
+/*        Thread.sleep(5000);*/
 
-        //main box xPath
+        By elementXPATH = By.xpath("//*[@id=\"__next\"]/div[1]/main/div[5]/div[2]/div/div[2]/div/div[1]/div[1]/div[2]/div");
+//        wait.until(ExpectedConditions.presenceOfElementLocated(elementXPATH));
 
-        WebElement element = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[1]/main/div[5]/div[2]/div/div[2]/div/div[1]/div[1]/div[2]/div"));
+
+
+        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(elementXPATH));
 
         Utils.scrollToASpecificElement(driver, element);
+
+        Thread.sleep(1000);
+
         actions.moveToElement(element).build().perform();
 
-        List<WebElement> elements = driver.findElements(By.xpath("//*[@id=\"__next\"]/div[1]/main/div[5]/div[2]/div/div[2]/div/div[1]/div[1]/div[2]/div/div[1]/div[2]/div/ul//a"));
+        By elementsList = By.xpath("//*[@id=\"__next\"]/div[1]/main/div[5]/div[2]/div/div[2]/div/div[1]/div[1]/div[2]/div/div[1]/div[2]/div/ul//a");
 
+        List<WebElement> elements = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(elementsList));
+        System.out.println(elements);
 
         for (WebElement link : elements) {
             String elementLink = link.getAttribute("href");
