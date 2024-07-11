@@ -17,7 +17,7 @@ public class MyGuiApp {
 
     public static void main(String[] args) {
         // Create the frame
-        JFrame frame = new JFrame("My GUI Application");
+        JFrame frame = new JFrame("Test Portal");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.addWindowListener(new WindowAdapter() {
             @Override
