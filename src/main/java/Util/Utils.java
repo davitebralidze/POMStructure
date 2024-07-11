@@ -8,12 +8,10 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -177,78 +175,70 @@ public class Utils {
         }
     }
 
-//    public static String startAllureServeAndGetPort() {
-//        try {
-//            String[] command = {"cmd.exe", "/c", "allure serve"};
-//            ProcessBuilder processBuilder = new ProcessBuilder(command);
-//            processBuilder.redirectErrorStream(true);
-//
-//            Process process = processBuilder.start();
-//
-//            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-//            String line;
-//            while ((line = reader.readLine()) != null) {
-//
-//                // Check if the line contains information about the running server and extract the port
-//                if (line.contains("Server started at")) {
-//                    String[] parts = line.split(":");
-//                    if (parts.length > 2) {
-//                        String portString = parts[2].replaceAll("\\D+", "").trim();
-//                        final String CYAN = "\u001B[36m";
-//                        final String RESET = "\u001B[0m";
-//                        final String MAGENTA = "\u001B[35m";
-//                        if (!portString.isEmpty()) {
-//                            System.out.println(CYAN + "Allure Report is running on a port " + MAGENTA + portString + RESET);
-//                            System.out.println(CYAN + "The PID of your process is " + MAGENTA + getPIDOfTheProcess(portString) + RESET);
-//                            return portString;
-//                        }
-//                    }
-//                }
-//            }
-//
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        return null;
-//    }
-//
-//    public static String getPIDOfTheProcess(String port) {
-//        try {
-////            Runtime rt = Runtime.getRuntime();
-////            Process proc = rt.exec("cmd /c netstat -ano | findstr " + port);
-//            ProcessBuilder processBuilder = new ProcessBuilder("cmd", "/c", "netstat", "-ano", "|", "findstr", String.valueOf(port));
-//            Process process = processBuilder.start();
-//            BufferedReader stdInput = new BufferedReader(new InputStreamReader(process.getInputStream()));
-//
-//            String s;
-//            if ((s = stdInput.readLine()) != null) {
-//                int index = s.lastIndexOf(" ");
-//                return s.substring(index);
-//            }
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, "Something Went wrong with server");
-//            return null;
-//        }
-//        return null;
-//    }
-//
-//    public static void killAllureServer(String port, long allureServerActiveTime) {
-//        try {
-//            ProcessBuilder processBuilder = new ProcessBuilder("cmd", "/c", "Taskkill", "/PID", getPIDOfTheProcess(port), "/T", "/F");
-//            processBuilder.start();
-////            Runtime rt = Runtime.getRuntime();
-////            rt.exec("cmd /c Taskkill /PID" + getPIDOfTheProcess(port) + " /T /F");
-//            Thread.sleep(allureServerActiveTime);
-//            JOptionPane.showMessageDialog(null, "The test run has been finished!");
-//            final String ORANGE = "\033[93;1m";
-//            final String RESET = "\033[0m";
-//            System.out.println(ORANGE + "Allure server has been stopped" + RESET);
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, "Something Went wrong with server");
-//        }
-//    }
+    public static String startAllureServeAndGetPort() {
+        try {
+            String[] command = {"cmd.exe", "/c", "allure serve"};
+            ProcessBuilder processBuilder = new ProcessBuilder(command);
+            processBuilder.redirectErrorStream(true);
+
+            Process process = processBuilder.start();
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            String line;
+            while ((line = reader.readLine()) != null) {
+
+                // Check if the line contains information about the running server and extract the port
+                if (line.contains("Server started at")) {
+                    String[] parts = line.split(":");
+                    if (parts.length > 2) {
+                        String portString = parts[2].replaceAll("\\D+", "").trim();
+                        if (!portString.isEmpty()) {
+                            return portString;
+                        }
+                    }
+                }
+            }
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public static String getPIDOfTheProcess(String port) {
+        try {
+//            Runtime rt = Runtime.getRuntime();
+//            Process proc = rt.exec("cmd /c netstat -ano | findstr " + port);
+            ProcessBuilder processBuilder = new ProcessBuilder("cmd", "/c", "netstat", "-ano", "|", "findstr", String.valueOf(port));
+            Process process = processBuilder.start();
+            BufferedReader stdInput = new BufferedReader(new InputStreamReader(process.getInputStream()));
+
+            String s;
+            if ((s = stdInput.readLine()) != null) {
+                int index = s.lastIndexOf(" ");
+                return s.substring(index);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Something Went wrong with server");
+            return null;
+        }
+        return null;
+    }
+
+    public static void killAllureServer(String port) {
+        try {
+            ProcessBuilder processBuilder = new ProcessBuilder("cmd", "/c", "Taskkill", "/PID", getPIDOfTheProcess(port), "/T", "/F");
+            processBuilder.start();
+//            Runtime rt = Runtime.getRuntime();
+//            rt.exec("cmd /c Taskkill /PID" + getPIDOfTheProcess(port) + " /T /F");
+            final String ORANGE = "\033[93;1m";
+            final String RESET = "\033[0m";
+            System.out.println(ORANGE + "Allure server has been stopped" + RESET);
+        } catch (Exception ignored) {
+        }
+    }
 
     public static void removeElementFromDOM(WebDriver driver, WebElement webElement) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].parentNode.removeChild(arguments[0]);", webElement);
