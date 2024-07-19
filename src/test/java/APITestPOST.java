@@ -1,10 +1,11 @@
+import Util.BaseUtility;
 import Util.PropertyLoader;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
-public class APITestPOST {
+public class APITestPOST extends BaseUtility {
 
     @Test(groups = "smoke")
     public void testAPI() {

@@ -1,5 +1,5 @@
 To run tests with TestNG you will need next commands:
-mvn test -D suiteFile=${testng_xml_name} -Dbrowser=${Browser_name} -Denvrionment=${Envrionment_Name}
+mvn test -D suiteFile=${testng_xml_name} -D browser=${Browser_name} -D nvrionment=${Envrionment_Name}
 
 By default TestNG runs on QA environment and Chrome browser!
 Supported browsers (Remember, put the string exactly as given): 1) chrome 2) firefox 3) opera 4) safari
