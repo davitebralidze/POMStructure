@@ -1,21 +1,16 @@
 package Util;
 
 import java.io.IOException;
-import java.sql.Driver;
 import java.time.Duration;
 import java.time.LocalTime;
-import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
-import DriverFactory.DriverFactory;
+import WebDriverManager.WebDriverManager;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.*;
 import PageSteps.FirstPageSteps;
 
@@ -51,7 +46,7 @@ public class BaseUtility {
     @Parameters({"browser", "environment"})
     public void setup(final String browser, final String environment) {
 
-        driver = DriverFactory.getDriver(browser).createDriver();
+        driver = WebDriverManager.getInstance(browser).getDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 
@@ -65,7 +60,7 @@ public class BaseUtility {
     @AfterMethod(groups = "smoke")
     public void finish() {
         takeScreenshot();
-        driver.quit();
+        WebDriverManager.quitBrowser();
     }
 
     @AfterSuite(groups = "smoke")
