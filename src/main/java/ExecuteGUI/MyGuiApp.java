@@ -132,7 +132,6 @@ public class MyGuiApp {
     private static void showTestResults() {
         if(port!=null) {
             Utils.killAllureServer(port);
-            System.out.println("Previous server was killed");
         }
         port = Utils.startAllureServeAndGetPort();
     }
