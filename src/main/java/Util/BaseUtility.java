@@ -1,11 +1,13 @@
 package Util;
 
 import java.io.IOException;
+import java.sql.Driver;
 import java.time.Duration;
 import java.time.LocalTime;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
+import DriverFactory.DriverFactory;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -48,19 +50,15 @@ public class BaseUtility {
     @BeforeMethod(groups = "smoke")
     @Parameters({"browser", "environment"})
     public void setup(final String browser, final String environment) {
-        if(browser.equals("chrome")) {
-            driver = new ChromeDriver();
-        } else if (browser.equals("firefox")) {
-            driver = new FirefoxDriver();
-        } else {
-            logger.severe("Such browser is not supported");
-            System.exit(0);
-        }
-        propertyLoader = new PropertyLoader(environment);
+
+        driver = DriverFactory.getDriver(browser).createDriver();
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+
+
+        propertyLoader = new PropertyLoader(environment);
         driver.get(propertyLoader.returnConfigValue("url.base"));
         //Setting implicit wait
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
         firstPageSteps = new FirstPageSteps(driver);
     }
 
