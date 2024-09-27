@@ -20,7 +20,6 @@ import java.util.Properties;
 public class QueryExecutioner {
     public static class MySQL {
         public static String selectSpecificDataFromColumn(String query, String columnName) {
-
 //            Properties properties = new Properties();
 //            try {
 //                properties.load(Files.newInputStream(Path.of("DBCredentials.properties"), StandardOpenOption.READ));
