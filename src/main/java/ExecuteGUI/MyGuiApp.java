@@ -10,6 +10,7 @@ import java.io.*;
 
 public class MyGuiApp {
 
+    //TODO Add buttons for Maven install
     //TODO Add resolution dropdown
     //TODO Add testng file selector dropdown (would be nice if dropdown will automatically fetch all the testng files)
     //TODO If possible implement allure inside of the app window
