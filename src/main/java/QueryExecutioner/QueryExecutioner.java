@@ -15,6 +15,7 @@ import java.util.Properties;
 
 //TODO Add Postgre connection - Needs to be tested
 //TODO Test the database connections
+//TODO Do something with the approach of providing credentials, as they might very depending on the env
 
 
 public class QueryExecutioner {
